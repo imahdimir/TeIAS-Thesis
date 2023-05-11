@@ -1,5 +1,4 @@
 {
   "slf": "https://github.com/imahdimir/Rolling-CAPM",
-  "ipo": "https://github.com/imahdimir/d-FirmTicker-2-IPO-Date",
-  "tedpix": "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
+  "ret": "https://github.com/imahdimir/d-Adjusted-Returns"
 }

@@ -22,11 +22,15 @@ import ns
 gdu = ns.GDU()
 c = ns.Col()
 
+class FPN :
+    rets = Path('temp-rets.prq')
+
 class Params :
-    after_ipo_months = 3
+    days_2_rm_after_ipo = 40
     start_end_window = (-60 , -1)
 
-pa = Params()
+class ColName :
+    ret = c.ar1dlf + '-modified'
 
 fpn_adj_close_ffilled = Path('dta/adjclose-ffilled.prq')
 fpn_risk_free_rate_apr_monthly = Path('dta/rf-m.xlsx')
@@ -135,42 +139,9 @@ def main() :
     pass
 
     ##
-    gdsa = GitHubDataRepo(gdu.srca)
-    dfa = gdsa.read_data()
 
     ##
-    iporep = GithubData(ipodb_repo)
-    iporep.clone()
 
-    ##
-    ipofpn = iporep.data_filepath
-    ipodf = pd.read_parquet(ipofpn)
-    ipodf = ipodf.reset_index()
-
-    ##
-    ipodf['pjdt'] = ipodf[ipojd].apply(jdstr)
-    ipodf['gd'] = ipodf['pjdt'].apply(lambda x : x.to_gregorian())
-    ipodf['gd+af'] = ipodf['gd'] + relativedelta(months = after_ipo_months)
-    ipodf[bdtc] = ipodf['gd+af'].apply(lambda x : JalaliDate(x))
-    ipodf = ipodf[[btic , bdtc]]
-
-    ##
-    df = rdata(fpn_adj_close_ffilled)
-    df = df.sort_values(jdc)
-    df = df.reset_index(drop = True)
-    dfv = df.head(1000)
-    ##
-    msk = df[tic].isin(ipodf[btic])
-    df = df[msk]
-    ##
-    ipodf = ipodf.set_index(btic)
-    df[bdtc] = df[tic].map(ipodf[bdtc])
-    df[bdtc] = df[bdtc].apply(lambda x : x.isoformat())
-    dfv = df.head(1000)
-    ##
-    msk = df[jdc].ge(df[bdtc])
-    df = df[msk]
-    dfv = df.head(1000)
     ##
     df = df.drop(columns = bdtc)
     ##
