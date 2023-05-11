@@ -82,6 +82,7 @@ def main() :
     df.to_parquet(fpn.rets , index = False)
 
     ##
+    gdr.rmdir()
 
 ##
 
