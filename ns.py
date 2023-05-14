@@ -1,6 +1,8 @@
 class GDU :
     slf = "https://github.com/imahdimir/Rolling-CAPM"
-    ret = "https://github.com/imahdimir/d-Adjusted-Returns"
+    src_rets = "https://github.com/imahdimir/d-Adjusted-Returns"
+    src_rf = "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly"
+    src_mkt_indx = "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
 
 class Col :
     jd = "JDate"
@@ -26,4 +28,11 @@ class Col :
     is_tic_open = "IsTickerOpen"
     ind_id = "IndexID"
     obsd = "ObsDate"
+    close = "Close"
+    tedpix_close = "TEDPIX-Close"
+    rf_apr = "RiskFree-Rate-APR"
+    rf_d = "RiskFree-Rate-Daily"
+    tedpix_ret = "TEDPIX-Return"
+    tedpix_exss_ret = "TEDPIX-Excess-Return"
+    exss_ret = "Excess-Return"
 
