@@ -20,21 +20,21 @@ pa = Params()
 cn = ColName()
 
 ols_res = {
-        'alpha'     : None ,
-        'alpha_std' : None ,
-        'alpha_t'   : None ,
-        'alpha_p'   : None ,
+        cn.alpha     : None ,
+        cn.alpha_std : None ,
+        cn.alpha_t   : None ,
+        cn.alpha_p   : None ,
 
-        'beta'      : None ,
-        'beta_std'  : None ,
-        'beta_t'    : None ,
-        'beta_p'    : None ,
+        cn.beta      : None ,
+        cn.beta_std  : None ,
+        cn.beta_t    : None ,
+        cn.beta_p    : None ,
 
-        'F-stat'    : None ,
-        'F-p'       : None ,
-        'R2'        : None ,
-        'R2_adj'    : None ,
-        'DW'        : None ,
+        cn.f_stat    : None ,
+        cn.f_p       : None ,
+        cn.r2        : None ,
+        cn.r2_adj    : None ,
+        cn.dw        : None ,
         }
 
 def keep_relevant_cols(df) :
@@ -91,21 +91,21 @@ def ex_ols_result(res) :
     if len(res.params) != 2 :
         return pd.Series(ou)
 
-    ou['alpha'] = res.params[0]
-    ou['alpha_std'] = res.bse[0]
-    ou['alpha_t'] = res.tvalues[0]
-    ou['alpha_p'] = res.pvalues[0]
+    ou[cn.alpha] = res.params[0]
+    ou[cn.alpha_std] = res.bse[0]
+    ou[cn.alpha_t] = res.tvalues[0]
+    ou[cn.alpha_p] = res.pvalues[0]
 
-    ou['beta'] = res.params[1]
-    ou['beta_std'] = res.bse[1]
-    ou['beta_t'] = res.tvalues[1]
-    ou['beta_p'] = res.pvalues[1]
+    ou[cn.beta] = res.params[1]
+    ou[cn.beta_std] = res.bse[1]
+    ou[cn.beta_t] = res.tvalues[1]
+    ou[cn.beta_p] = res.pvalues[1]
 
-    ou['F-stat'] = res.fvalue
-    ou['F-p'] = res.f_pvalue
-    ou['R2'] = res.rsquared
-    ou['R2_adj'] = res.rsquared_adj
-    ou['DW'] = durbin_watson(res.resid)
+    ou[cn.f_stat] = res.fvalue
+    ou[cn.f_p] = res.f_pvalue
+    ou[cn.r2] = res.rsquared
+    ou[cn.r2_adj] = res.rsquared_adj
+    ou[cn.dw] = durbin_watson(res.resid)
 
     return pd.Series(ou)
 
@@ -137,44 +137,15 @@ def main() :
     # fit model
     cols = ols_res.keys()
 
+    ##
     for idx , ro in df.iterrows() :
         df.loc[idx , cols] = fit_model_on_a_row(ro , df)
 
         if idx % 1e4 == 0 :
             print(idx)
-            break
 
     ##
-    idx = 667733
-    row = df.loc[idx]
-    row
-
-    ##
-    df.loc[idx , cols] = fit_model_on_a_row(df.loc[idx] , df)
-    row1 = df.loc[idx]
-
-    ##
-    df1 = filter_relevant_subdf_for_capm(row , df)
-
-    ##
-    res = fit_simple_ols(df1)
-    res.summary()
-
-    ##
-    res1 = ex_ols_result(res)
-    res1
-
-    ##
-    res.params
-
-    ##
-    res.summary()
-
-    ##
-    res.durbin_watson
-
-    ##
-    durbin_watson(res.resid)
+    df.to_parquet(fpn.t3 , index = False)
 
 ##
 

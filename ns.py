@@ -3,6 +3,8 @@ class GDU :
     src_rets = "https://github.com/imahdimir/d-Adjusted-Returns"
     src_rf = "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly"
     src_mkt_indx = "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
+    src_codal_ltrs = "https://github.com/imahdimir/d-all-Codal-letters"
+    src_codal_tics_2_ftics = "https://github.com/imahdimir/d-CodalTicker-2-FirmTicker"
 
 class Col :
     jd = "JDate"
@@ -35,4 +37,29 @@ class Col :
     tedpix_ret = "TEDPIX-Return"
     tedpix_exss_ret = "TEDPIX-Excess-Return"
     exss_ret = "Excess-Return"
+
+class DAllCodalLetters :
+    TracingNo = "TracingNo"
+    CodalTicker = "CodalTicker"
+    CompanyName = "CompanyName"
+    LetterCode = "LetterCode"
+    Title = "Title"
+    SentDateTime = "SentDateTime"
+    PublishDateTime = "PublishDateTime"
+    UnderSupervision = "UnderSupervision"
+    SuperVision_UnderSupervision = "SuperVision.UnderSupervision"
+    SuperVision_AdditionalInfo = "SuperVision.AdditionalInfo"
+    SuperVision_Reasons = "SuperVision.Reasons"
+    IsEstimate = "IsEstimate"
+    TedanUrl = "TedanUrl"
+    HasHtml = "HasHtml"
+    Url = "Url"
+    HasAttachment = "HasAttachment"
+    AttachmentUrl = "AttachmentUrl"
+    HasExcel = "HasExcel"
+    ExcelUrl = "ExcelUrl"
+    HasPdf = "HasPdf"
+    PdfUrl = "PdfUrl"
+    HasXbrl = "HasXbrl"
+    XbrlUrl = "XbrlUrl"
 

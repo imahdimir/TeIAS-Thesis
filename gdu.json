@@ -2,5 +2,7 @@
   "slf": "https://github.com/imahdimir/Rolling-CAPM",
   "src_rets": "https://github.com/imahdimir/d-Adjusted-Returns",
   "src_rf": "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly",
-  "src_mkt_indx": "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
+  "src_mkt_indx": "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX",
+  "src_codal_ltrs": "https://github.com/imahdimir/d-all-Codal-letters",
+  "src_codal_tics_2_ftics": "https://github.com/imahdimir/d-CodalTicker-2-FirmTicker"
 }
