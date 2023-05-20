@@ -12,13 +12,19 @@ import ns
 gdu = ns.GDU()
 c = ns.Col()
 
+class Dirs :
+    td = Path('temp-data/')
+
+dyr = Dirs()
+
 class FPN :
-    t0 = Path('temp-0.prq')
-    t1 = Path('temp-1.prq')
-    t2 = Path('temp-2.prq')
-    t3 = Path('temp-3.prq')
-    t4 = Path('temp-4.prq')
-    t5 = Path('temp-5.prq')
+    t0 = dyr.td / 'temp-0.prq'
+    t1 = dyr.td / 'temp-1.prq'
+    t2 = dyr.td / 'temp-2.prq'
+    t3 = dyr.td / 'temp-3.prq'
+    t4 = dyr.td / 'temp-4.prq'
+    t5 = dyr.td / 'temp-5.prq'
+    t6 = dyr.td / 'temp-6.prq'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -53,6 +59,7 @@ class ColName :
     expctd_exss_ret = 'Expected-Excess-Return'
     abnrml_ret = 'Abnormal-Return'
     is_abnrml_ret_signfcnt = 'Is-Abnormal-Return-Significant'
+    nws_eff_d = 'News-Effective-Date'
 
 def main() :
     pass

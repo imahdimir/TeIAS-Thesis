@@ -79,6 +79,8 @@ def main() :
     df = map_codal_letters_to_firms_tickers(df , df_tics)
 
     ##
+    # save data
+    df.to_parquet(fpn.t5 , index = False)
 
     ##
 

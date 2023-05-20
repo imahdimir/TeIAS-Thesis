@@ -1,7 +1,7 @@
 ## Manually add by me
 venv
 .idea
-temp-*.prq
+temp-data/
 
 # General
 .DS_Store

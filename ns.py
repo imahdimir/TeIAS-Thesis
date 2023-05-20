@@ -16,6 +16,7 @@ class Col :
     eng_ftic = "EngFirmTicker"
     name = "Name"
     d = "Date"
+    dt = "DateTime"
     ahi = "AdjHigh"
     alow = "AdjLow"
     aopen = "AdjOpen"
