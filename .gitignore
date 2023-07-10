@@ -1,7 +1,7 @@
 ## Manually add by me
 venv
 .idea
-temp-data/
+temp_data/
 
 # General
 .DS_Store

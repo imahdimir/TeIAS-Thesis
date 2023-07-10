@@ -8,16 +8,11 @@ import numpy as np
 from githubdata import GitHubDataRepo
 from scipy import stats
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
-
-gdu = ns.GDU()
-c = ns.Col()
-fpn = FPN()
-pa = Params()
-cn = ColName()
+from main import c
+from main import cn
+from main import fpn
+from main import gdu
+from main import pa
 
 def keep_relevant_cols(df) :
     # remove not wanted cols

@@ -4,28 +4,39 @@
 
 from pathlib import Path
 
-from mirutil.ns import update_ns_module
+from namespace_mahdimir import github_data_url as mgdu
+from namespace_mahdimir import tse as ns
 
-update_ns_module()
-import ns
-
-gdu = ns.GDU()
+# namespace   %%%%%%%%%%%%%%%%%%%%%%%%%%%
 c = ns.Col()
 
-class Dirs :
-    td = Path('temp-data/')
+# class       %%%%%%%%%%%%%%%%%%%%%%%%%%%
+class GDU :
+    g = mgdu.GitHubDataUrl()
 
-dyr = Dirs()
+    slf = "https://github.com/imahdimir/Rolling-CAPM"
+    src_rets = "https://github.com/imahdimir/d-Adjusted-Returns"
+    src_rf = "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly"
+    src_mkt_indx = "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
+    src_codal_ltrs = "https://github.com/imahdimir/d-all-Codal-letters"
+    src_codal_tics_2_ftics = "https://github.com/imahdimir/d-CodalTicker-2-FirmTicker"
+    src_d_ins_ind = g.d_ins_ind
+
+class Dirs :
+    td = Path('temp_data/')
 
 class FPN :
-    t0 = dyr.td / 'temp-0.prq'
-    t1 = dyr.td / 'temp-1.prq'
-    t2 = dyr.td / 'temp-2.prq'
-    t3 = dyr.td / 'temp-3.prq'
-    t4 = dyr.td / 'temp-4.prq'
-    t5 = dyr.td / 'temp-5.prq'
-    t6 = dyr.td / 'temp-6.prq'
-    t7 = dyr.td / 'temp-7.prq'
+    dyr = Dirs()
+
+    t0 = dyr.td / 't0.prq'
+    t1 = dyr.td / 't1.prq'
+    t2 = dyr.td / 't2.prq'
+    t3 = dyr.td / 't3.prq'
+    t4 = dyr.td / 't4.prq'
+    t5 = dyr.td / 't5.prq'
+    t6 = dyr.td / 't6.prq'
+    t7 = dyr.td / 't7.prq'
+    t8 = dyr.td / 't8.prq'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -64,11 +75,43 @@ class ColName :
     nws_eff_jd = 'News-Effective-JDate'
     nws_type = 'NewsType'
 
+    nbss = 'Net-Buy-Share-Ins'
+    nbsd = 'Net-Buy-Share-Ind'
+
+    avs = 'Daily-Avg-Net-Buy-Share-Ins'
+    avd = 'Daily-Avg-Net-Buy-Share-Ind'
+
+    avts = 'Daily-Avg-Net-Buy-Share-Ins-Traded'
+    avtd = 'Daily-Avg-Net-Buy-Share-Ind-Traded'
+
+    avex_buy_s = 'Daily-Avg-Net-Buy-Share-Ins-Excl-Zeros'
+    avex_sell_s = 'Daily-Avg-Net-Sell-Share-Ins-Excl-Zeros'
+    avex_buy_d = 'Daily-Avg-Net-Buy-Share-Ind-Excl-Zeros'
+    avex_sell_d = 'Daily-Avg-Net-Sell-Share-Ind-Excl-Zeros'
+
+    xb_smpl_s = 'Excess-Buy-Simple-Ins'
+    xb_smpl_d = 'Excess-Buy-Simple-Ind'
+
+    xb_smpl_trd_s = 'Excess-Buy-Simple-Ins-Traded'
+    xb_smpl_trd_d = 'Excess-Buy-Simple-Ind-Traded'
+
+    xb_s = 'Excess-Buy-Ins'
+    xs_s = 'Excess-Sell-Ins'
+
+    xb_d = 'Excess-Buy-Ind'
+    xs_d = 'Excess-Sell-Ind'
+
 class NewsType :
     good = 'Good'
     bad = 'Bad'
     neutral = 'Neutral'
     unknown = 'Unknown'
+
+# class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fpn = FPN()
+pa = Params()
+gdu = GDU()
+cn = ColName()
 
 def main() :
     pass

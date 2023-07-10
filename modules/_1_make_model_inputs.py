@@ -7,18 +7,12 @@ from pathlib import Path
 import pandas as pd
 from githubdata import GitHubDataRepo
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
+from main import c
+from main import cn
+from main import fpn
+from main import gdu
 
-gdu = ns.GDU()
-c = ns.Col()
-fpn = FPN()
-pa = Params()
-cn = ColName()
-
-def get_risf_free_rate_data() :
+def get_risk_free_rate_data() :
     gdr = GitHubDataRepo(gdu.src_rf)
     gdr.clone_overwrite()
     df = gdr.read_data()
@@ -63,7 +57,7 @@ def main() :
     df = pd.read_parquet(fpn.t0)
 
     ##
-    df_rf = get_risf_free_rate_data()
+    df_rf = get_risk_free_rate_data()
 
     ##
     df = add_risk_free_rate(df , df_rf)

@@ -7,8 +7,7 @@ from pathlib import Path
 import pandas as pd
 from persiantools.jdatetime import JalaliDate
 
-import ns
-from main import ColName
+from main import ColName , ns
 from main import FPN
 from main import NewsType
 from main import Params
@@ -114,7 +113,7 @@ def main() :
     ##
     print('news type distribution:')
     print(df[cn.nws_type].value_counts())
-    
+
 ##
 
 
