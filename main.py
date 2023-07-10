@@ -14,7 +14,7 @@ c = ns.Col()
 class GDU :
     g = mgdu.GitHubDataUrl()
 
-    slf = "https://github.com/imahdimir/Rolling-CAPM"
+    slf = mgdu.m + 'TeIAS-Thesis'
     src_rets = "https://github.com/imahdimir/d-Adjusted-Returns"
     src_rf = "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly"
     src_mkt_indx = "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
