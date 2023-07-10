@@ -2,6 +2,8 @@
 venv
 .idea
 temp_data/
+paper
+d-Ins-Ind
 
 # General
 .DS_Store
