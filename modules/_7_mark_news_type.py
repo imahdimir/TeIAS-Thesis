@@ -5,22 +5,16 @@
 from pathlib import Path
 
 import pandas as pd
+from namespace_mahdimir import tse as tse_ns
 from persiantools.jdatetime import JalaliDate
 
-from main import ColName , ns
-from main import FPN
-from main import NewsType
-from main import Params
+from main import c
+from main import cn
+from main import fpn
+from main import nws_type
 
-gdu = ns.GDU()
-
-c = ns.Col()
-cd = ns.DAllCodalLetters()
-
-fpn = FPN()
-pa = Params()
-cn = ColName()
-nws_type = NewsType()
+# namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+cd = tse_ns.DAllCodalLetters()
 
 def find_news_effective_jdate(df) :
     df[cn.nws_eff_d] = df[cn.nws_eff_d].dt.date

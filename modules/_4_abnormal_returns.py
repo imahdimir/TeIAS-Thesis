@@ -6,16 +6,10 @@ from pathlib import Path
 
 import pandas as pd
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
-
-gdu = ns.GDU()
-c = ns.Col()
-fpn = FPN()
-pa = Params()
-cn = ColName()
+from main import c
+from main import cn
+from main import fpn
+from main import pa
 
 def mark_credible_models(df) :
     """fiter out credible models with significant beta"""

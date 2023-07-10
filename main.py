@@ -4,23 +4,24 @@
 
 from pathlib import Path
 
-from namespace_mahdimir import github_data_url as mgdu
-from namespace_mahdimir import tse as ns
+from namespace_mahdimir import tse_github_data_url as tgdu
+from namespace_mahdimir import tse as tse_ns
 
 # namespace   %%%%%%%%%%%%%%%%%%%%%%%%%%%
-c = ns.Col()
+c = tse_ns.Col()
 
 # class       %%%%%%%%%%%%%%%%%%%%%%%%%%%
 class GDU :
-    g = mgdu.GitHubDataUrl()
+    g = tgdu.GitHubDataUrl()
 
-    slf = mgdu.m + 'TeIAS-Thesis'
-    src_rets = "https://github.com/imahdimir/d-Adjusted-Returns"
-    src_rf = "https://github.com/imahdimir/d-Iran-RiskFree-Rate-Monthly"
-    src_mkt_indx = "https://github.com/imahdimir/d-TSE-Overall-Index-TEDPIX"
-    src_codal_ltrs = "https://github.com/imahdimir/d-all-Codal-letters"
-    src_codal_tics_2_ftics = "https://github.com/imahdimir/d-CodalTicker-2-FirmTicker"
-    src_d_ins_ind = g.d_ins_ind
+    slf = tgdu.m + 'TeIAS-Thesis'
+
+    src_adj_rets = g.adj_ret
+    src_rf = g.rf
+    src_mkt_indx = g.rf
+    src_codal_ltrs = g.codal_ltrs
+    src_codal_tics_2_ftics = g.codal_tics_2_ftics
+    src_d_ins_ind = g.ind_ins
 
 class Dirs :
     td = Path('temp_data/')
@@ -112,6 +113,7 @@ fpn = FPN()
 pa = Params()
 gdu = GDU()
 cn = ColName()
+nws_type = NewsType()
 
 def main() :
     pass

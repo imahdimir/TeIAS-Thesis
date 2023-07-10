@@ -2,29 +2,22 @@
 
     """
 
-from pathlib import Path
 import datetime
 import warnings
+from pathlib import Path
 
 import pandas as pd
-from githubdata import GitHubDataRepo
 from mirutil.jdate import make_datetime_from_iso_jdate_time
+from namespace_mahdimir import tse as tse_ns
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
+from main import c
+from main import cn
+from main import fpn
 
 warnings.filterwarnings('ignore')
 
-gdu = ns.GDU()
-
-c = ns.Col()
-cd = ns.DAllCodalLetters()
-
-fpn = FPN()
-pa = Params()
-cn = ColName()
+# namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+cd = tse_ns.DAllCodalLetters()
 
 def get_tikcer_open_days_data() :
     df = pd.read_parquet(fpn.t2)

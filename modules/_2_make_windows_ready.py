@@ -6,16 +6,11 @@ from pathlib import Path
 
 import pandas as pd
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
-
-gdu = ns.GDU()
-c = ns.Col()
-fpn = FPN()
-pa = Params()
-cn = ColName()
+from main import c
+from main import cn
+from main import fpn
+from main import gdu
+from main import pa
 
 def find_window_start_and_end_jdate_each_day(df) :
     df = df[[c.jd]]
@@ -118,7 +113,7 @@ def main() :
 
     ##
     # save
-    df.to_parquet('temp-2.prq' , index = False)
+    df.to_parquet(fpn.t2 , index = False)
 
     ##
 

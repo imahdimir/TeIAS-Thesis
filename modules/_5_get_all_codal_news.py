@@ -4,22 +4,15 @@
 
 from pathlib import Path
 
-import pandas as pd
 from githubdata import GitHubDataRepo
+from namespace_mahdimir import tse as tse_ns
 
-import ns
-from main import ColName
-from main import FPN
-from main import Params
+from main import c
+from main import fpn
+from main import gdu
 
-gdu = ns.GDU()
-
-c = ns.Col()
-cd = ns.DAllCodalLetters()
-
-fpn = FPN()
-pa = Params()
-cn = ColName()
+# namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+cd = tse_ns.DAllCodalLetters()
 
 def get_all_codal_letters() :
     """get all codal letters data"""
