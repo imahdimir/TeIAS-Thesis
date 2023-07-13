@@ -18,7 +18,7 @@ class GDU :
 
     src_adj_rets = g.adj_ret
     src_rf = g.rf
-    src_mkt_indx = g.rf
+    mkt_indx_s = g.tedpix
     src_codal_ltrs = g.codal_ltrs
     src_codal_tics_2_ftics = g.codal_tics_2_ftics
     src_d_ins_ind = g.ind_ins
@@ -38,6 +38,7 @@ class FPN :
     t6 = dyr.td / 't6.prq'
     t7 = dyr.td / 't7.prq'
     t8 = dyr.td / 't8.prq'
+    t9 = dyr.td / 't9.prq'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -102,6 +103,23 @@ class ColName :
     xb_d = 'Excess-Buy-Ind'
     xs_d = 'Excess-Sell-Ind'
 
+    # module 9
+
+    rm1 = 'R(-1)'
+    rm2m5 = 'R(-2,-5)'
+    rm6m27 = 'R(-6,-27)'
+    rm28m119 = 'R(-28,-119)'
+
+    mrm1 = 'MR(-1)'
+    mrm2m5 = 'MR(-2,-5)'
+    mrm6m27 = 'MR(-6,-27)'
+    mrm28m119 = 'MR(-28,-119)'
+
+    arm1 = 'MAR(-1)'
+    arm2m5 = 'MAR(-2,-5)'
+    arm6m27 = 'MAR(-6,-27)'
+    arm28m119 = 'MAR(-28,-119)'
+
 class NewsType :
     good = 'Good'
     bad = 'Bad'
@@ -109,6 +127,7 @@ class NewsType :
     unknown = 'Unknown'
 
 # class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dyr = Dirs()
 fpn = FPN()
 pa = Params()
 gdu = GDU()

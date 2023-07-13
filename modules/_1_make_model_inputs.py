@@ -27,10 +27,8 @@ def add_risk_free_rate(df , df_rf) :
     return df.merge(df_rf , how = 'left')
 
 def get_market_index_data() :
-    gdr = GitHubDataRepo(gdu.src_mkt_indx)
-    gdr.clone_overwrite()
+    gdr = GitHubDataRepo(gdu.mkt_indx_s)
     df = gdr.read_data()
-    gdr.rmdir()
     return df
 
 def cal_market_return(df_mkt) :

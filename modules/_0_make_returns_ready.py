@@ -40,10 +40,7 @@ def main() :
     ##
     # dl filled returns data
     gdr = GitHubDataRepo(gdu.src_adj_rets)
-
-    ##
-    gdr.clone_overwrite()
-
+    
     ##
     df = gdr.read_data()
 
@@ -75,9 +72,6 @@ def main() :
 
     ##
     df.to_parquet(fpn.t0 , index = False)
-
-    ##
-    gdr.rmdir()
 
 ##
 

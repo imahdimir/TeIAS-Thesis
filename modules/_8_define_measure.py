@@ -12,10 +12,10 @@ from main import c
 from main import cn
 from main import fpn
 from main import gdu
-from main import ns
+from main import tse_ns
 
 # namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-cd = ns.DInsIndCols()
+cd = tse_ns.DIndInsCols()
 
 def keep_relevant_cols(df: pd.DataFrame) -> pd.DataFrame :
     cols = {
@@ -173,9 +173,6 @@ def main() :
 
     ##
     df.to_parquet(fpn.t8 , index = False)
-
-    ##
-    gdr.rmdir()
 
     ##
 

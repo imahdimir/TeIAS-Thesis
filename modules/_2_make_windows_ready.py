@@ -9,7 +9,6 @@ import pandas as pd
 from main import c
 from main import cn
 from main import fpn
-from main import gdu
 from main import pa
 
 def find_window_start_and_end_jdate_each_day(df) :

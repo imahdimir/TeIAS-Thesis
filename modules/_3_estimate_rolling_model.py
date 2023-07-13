@@ -11,7 +11,6 @@ from statsmodels.stats.stattools import durbin_watson
 from main import c
 from main import cn
 from main import fpn
-from main import gdu
 from main import pa
 
 ols_res = {
