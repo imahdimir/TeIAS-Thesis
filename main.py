@@ -22,6 +22,7 @@ class GDU :
     src_codal_ltrs = g.codal_ltrs
     src_codal_tics_2_ftics = g.codal_tics_2_ftics
     src_d_ins_ind = g.ind_ins
+    tse_wds_s = g.tse_work_days
 
 class Dirs :
     td = Path('temp_data/')
@@ -39,6 +40,7 @@ class FPN :
     t7 = dyr.td / 't7.prq'
     t8 = dyr.td / 't8.prq'
     t9 = dyr.td / 't9.prq'
+    t10 = dyr.td / 't10.prq'
 
 class Params :
     days_2_rm_after_ipo = 40
