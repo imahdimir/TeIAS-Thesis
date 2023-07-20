@@ -23,6 +23,8 @@ class GDU :
     src_codal_tics_2_ftics = g.codal_tics_2_ftics
     src_d_ins_ind = g.ind_ins
     tse_wds_s = g.tse_work_days
+    adj_price_s = g.adj_price
+    mktcap_s = g.mktcap
 
 class Dirs :
     td = Path('temp_data/')
@@ -41,6 +43,12 @@ class FPN :
     t8 = dyr.td / 't8.prq'
     t9 = dyr.td / 't9.prq'
     t10 = dyr.td / 't10.prq'
+    t11 = dyr.td / 't11.prq'
+
+    t12 = dyr.td / 't12.prq'
+    t13 = dyr.td / 't13.prq'
+
+    ts1 = dyr.td / 'stata_1.csv'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -106,7 +114,6 @@ class ColName :
     xs_d = 'Excess-Sell-Ind'
 
     # module 9
-
     rm1 = 'R(-1)'
     rm2m5 = 'R(-2,-5)'
     rm6m27 = 'R(-6,-27)'
@@ -122,11 +129,22 @@ class ColName :
     arm6m27 = 'MAR(-6,-27)'
     arm28m119 = 'MAR(-28,-119)'
 
+    # 11
+    acmx = 'adj_close_max'
+    acmn = 'adj_close_min'
+
+    mh = 'month_highest'
+    ml = 'month_lowest'
+
+    # 12
+    fs_tercile = 'FirmSize-Tercile'
+
 class NewsType :
     good = 'Good'
     bad = 'Bad'
     neutral = 'Neutral'
-    unknown = 'Unknown'
+    unk = 'Unknown'
+    no_news = 'No-News'
 
 # class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 dyr = Dirs()

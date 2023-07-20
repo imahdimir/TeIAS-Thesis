@@ -74,11 +74,11 @@ def mark_news_type(df) :
 
     df.loc[msk , cn.nws_type] = nws_type.neutral
 
-    # mark having news effective date but no abnormal return as unknown news
+    # mark having news effective date but no abnormal return as unk news
     msk = df[cn.nws_eff_jd].notna()
     msk &= df[cn.abnrml_ret].isna()
 
-    df.loc[msk , cn.nws_type] = nws_type.unknown
+    df.loc[msk , cn.nws_type] = nws_type.unk
 
     return df
 
