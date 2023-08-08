@@ -1,0 +1,99 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usetheme{AnnArbor}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{perpage} % makes foonotes per page with a commmand
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{dcolumn}
+\usepackage{caption}
+\usepackage{tikz}
+
+
+
+\MakePerPage{footnote} % pkg: perpage, makes footnotes per page
+\graphicspath{{./imgs/}} % pkg: graphicx, direcoty of images
+\DeclareMathOperator{\E}{\mathbb{E}} % pkg: amsmath
+\newcolumntype{d}[1]{D{.}{.}{#1}} % pkg: dcolumn
+\setbeamertemplate{caption}[numbered] % make table and figs numbered
+
+
+\title[Ng, Wu (2007)]{\MakeUppercase{The trading behavior of institutions and individuals in Chinese equity markets}}
+\subtitle{Journal of Banking \& Finance (2007)}
+\author[Mahdi Mir]{Lilian Ng\texorpdfstring{\footnote{Lubar School of Business, University of Wisconsin-Milwaukee \newline Now: Schulich School of Business, York University}}{}, Fei Wu\texorpdfstring{\footnote{Massey University, Department of Finance, New Zealand \newline Now: Shanghai Advanced Institute of Finance}}{}}
+\date[TeIAS]{\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin Doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+\begin{frame}[label=outl]
+    \frametitle{Outline}
+    \tableofcontents{}
+\end{frame}
+
+
+\section{Introduction}
+
+\begin{frame}
+    \frametitle{Why It is Important?}
+    \begin{itemize}
+        \item The Chinese equity markets are dominated by individuals.
+              \begin{itemize}
+                  \item Compared to developed equity markets where a form of polarization between individual and institutional investors is evident.
+                  \item 99.5\% individuals, just 0.5\% are institutional. \\ (Chinese Securities Depository \& Clearing Co. Ltd, 2002).
+              \end{itemize}
+        \item Chinese markets were only established in the early 90s.
+        \item Short-selling \& margin trading are not allowed in China, like in Iran.
+    \end{itemize}
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[shift={(0em,4em)}]() at (current page.south)
+        {
+            \hyperlink{outl}{\beamerbutton{Outline}}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+
+\section{Data}
+
+
+\subsection*{The Main Data}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End Doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

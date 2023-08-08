@@ -1,7 +1,7 @@
 """
 
     """
-
+import struct
 from pathlib import Path
 
 import pandas as pd
@@ -148,6 +148,16 @@ def change_adjusted_returns_col_names(df) :
 
     return df
 
+def add_one_and_two_workday_lags_of_news_type(df) :
+    """ shifting this way is not 100% correct, but it is good enough for now
+    there might be open days not in the data set. but lag in stata does not work
+    because it considers dates and not workdays.
+    """
+    df[cn.l1n] = df.groupby(c.ftic)[cn.nws_type].shift(-1)
+    df[cn.l2n] = df.groupby(c.ftic)[cn.nws_type].shift(-2)
+
+    return df
+
 def main() :
     pass
 
@@ -204,6 +214,12 @@ def main() :
     df = change_adjusted_returns_col_names(df)
 
     ##
+    df = df.sort_values(by = [c.d] , ascending = False)
+
+    ##
+    df = add_one_and_two_workday_lags_of_news_type(df)
+
+    ##
     df.to_csv(fpn.ts1 , index = False)
 
     ##
@@ -220,9 +236,5 @@ if __name__ == "__main__" :
 
 def test() :
     pass
-
-    ##
-
-    ##
 
     ##

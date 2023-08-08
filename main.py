@@ -139,6 +139,10 @@ class ColName :
     # 12
     fs_tercile = 'FirmSize-Tercile'
 
+    # 13
+    l1n = 'lag1_news'
+    l2n = 'lag2_news'
+
 class NewsType :
     good = 'Good'
     bad = 'Bad'
