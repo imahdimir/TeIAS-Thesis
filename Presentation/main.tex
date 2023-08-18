@@ -1,15 +1,14 @@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%% Doc Class %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{beamer}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usetheme{AnnArbor}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{perpage} % makes foonotes per page with a commmand
 \usepackage{graphicx}
@@ -20,61 +19,132 @@
 \usepackage{tikz}
 
 
+%%%%%%%%%%%%%%%%% Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usetheme{Frankfurt}
+
+
+%%%%%%%%%%%%%%%%% Having Presentation Notes %%%%%%%%%%%%%%%%%%%
+
+% \setbeameroption{show notes on second screen} % comment out this line to get without notes version for the purpose of distribution
+% \setbeameroption{show notes} % note pages are interleaved with slides
+% \setbeameroption{hide notes}
+
+
+%%%%%%%%%%%%%%%%% Other Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \MakePerPage{footnote} % pkg: perpage, makes footnotes per page
+
 \graphicspath{{./imgs/}} % pkg: graphicx, direcoty of images
+
 \DeclareMathOperator{\E}{\mathbb{E}} % pkg: amsmath
+
 \newcolumntype{d}[1]{D{.}{.}{#1}} % pkg: dcolumn
+
 \setbeamertemplate{caption}[numbered] % make table and figs numbered
+\setbeamertemplate{frametitle}[default][center]
 
 
-\title[Ng, Wu (2007)]{\MakeUppercase{The trading behavior of institutions and individuals in Chinese equity markets}}
-\subtitle{Journal of Banking \& Finance (2007)}
-\author[Mahdi Mir]{Lilian Ng\texorpdfstring{\footnote{Lubar School of Business, University of Wisconsin-Milwaukee \newline Now: Schulich School of Business, York University}}{}, Fei Wu\texorpdfstring{\footnote{Massey University, Department of Finance, New Zealand \newline Now: Shanghai Advanced Institute of Finance}}{}}
+%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[]{\MakeUppercase{Do Funds Follow the Herd? \\ Evidence from Iran}}
+\subtitle{}
+
+\author[]{Mahdi Mir \newline Supervised by: Mahdi Heidari}
+
+\institute[TeIAS]{Tehran Institute for Advanced Studies}
+
 \date[TeIAS]{\today}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin Doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% Doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
+%%%%%%%%%%%%%%%%% Doc Begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
     \titlepage{}
 \end{frame}
 
-\begin{frame}[label=outl]
+
+\begin{frame}[label=toc]
     \frametitle{Outline}
     \tableofcontents{}
 \end{frame}
 
 
+
 \section{Introduction}
 
-\begin{frame}
-    \frametitle{Why It is Important?}
-    \begin{itemize}
-        \item The Chinese equity markets are dominated by individuals.
-              \begin{itemize}
-                  \item Compared to developed equity markets where a form of polarization between individual and institutional investors is evident.
-                  \item 99.5\% individuals, just 0.5\% are institutional. \\ (Chinese Securities Depository \& Clearing Co. Ltd, 2002).
-              \end{itemize}
-        \item Chinese markets were only established in the early 90s.
-        \item Short-selling \& margin trading are not allowed in China, like in Iran.
-    \end{itemize}
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[shift={(0em,4em)}]() at (current page.south)
-        {
-            \hyperlink{outl}{\beamerbutton{Outline}}
-        };
-    \end{tikzpicture}
+
+
+\begin{frame}{Motivation}
+
+
 \end{frame}
+
+
+\begin{frame}{The Question}
+
+\end{frame}
+
+
+\begin{frame}{Conculsion}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Related Litretature}
+
+
+
+\end{frame}
+
+
+\begin{frame}{Litretature Review}
+
+
+
+\end{frame}
+
 
 
 \section{Data}
 
 
-\subsection*{The Main Data}
+
+\begin{frame}{Data}
+
+
+
+\end{frame}
+
+
+
+\section{Methodology}
+
+
+% explain about two stages and the model in each stage
+% explain measures and defend them
+% explain all variable and their sources and how they are constructed
+% explain the model and the estimation method
+
+
+\section{Results}
+
+% provide summary statistics of data in each stage
+% try to provide some graphics
+% provide results of each stage
+% provide results of subsetting firm to big and small
 
 
 
@@ -93,7 +163,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%% Doc End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End Doc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
