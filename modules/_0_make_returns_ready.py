@@ -40,7 +40,7 @@ def main() :
     ##
     # dl filled returns data
     gdr = GitHubDataRepo(gdu.src_adj_rets)
-    
+
     ##
     df = gdr.read_data()
 
@@ -51,7 +51,7 @@ def main() :
     df = remove_n_days_after_ipo(df)
 
     ##
-    # copy the returns column for making not valid values to nan
+    # copy the returns' column for making not valid values to nan
     df[cn.ret] = df[c.ar1dlf].copy()
 
     ##
@@ -79,12 +79,3 @@ def main() :
 if __name__ == "__main__" :
     main()
     print(f'{Path(__file__).name} Done!')
-
-##
-
-
-# noinspection PyUnreachableCode
-if False :
-    pass
-
-    ##

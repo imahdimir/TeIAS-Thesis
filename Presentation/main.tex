@@ -124,7 +124,18 @@
 
 \begin{frame}{Data}
 
-
+    \begin{enumerate}
+        \item \textbf{TSE Stocks' Retruns}, \textit{Daily}
+        \item \textbf{TSE Overall Index Returns (Market Return)}, \textit{Daily}
+        \item \textbf{CBI Risk-Free Rate}, \textit{Monthly}
+        \item \textbf{All Codal News (Letters)}, \textit{Secondly}
+              \begin{itemize}
+                  \item Both before 1389 (1382 - 1389) and after 1389
+              \end{itemize}
+        \item \textbf{TSE Individual-Institutional Trade}, \textit{Daily}
+        \item \textbf{TSE Stocks' Nominal Prices}, \textit{Daily}
+        \item \textbf{TSE Stocks' Market Capitalization}, \textit{Daily}
+    \end{enumerate}
 
 \end{frame}
 
@@ -132,11 +143,59 @@
 
 \section{Methodology}
 
+\subsection{Stage 1}
 
 % explain about two stages and the model in each stage
 % explain measures and defend them
 % explain all variable and their sources and how they are constructed
 % explain the model and the estimation method
+
+\begin{frame}
+
+    \begin{tabular}{lc} \hline
+                      & (1)                                       \\
+        VARIABLES     & excessbuyins                              \\ \hline
+                      &                                           \\
+        r1            & -1.843***                                 \\
+                      & (0.0207)                                  \\
+        2.nt          & -0.148***                                 \\
+                      & (0.00633)                                 \\
+        3.nt          & -0.0789***                                \\
+                      & (0.00783)                                 \\
+        4.nt          & -0.0603***                                \\
+                      & (0.00456)                                 \\
+        2.l1\_nt      & -0.0398***                                \\
+                      & (0.00640)                                 \\
+        3.l1\_nt      & -0.0276***                                \\
+                      & (0.00784)                                 \\
+        4.l1\_nt      & -0.0213***                                \\
+                      & (0.00459)                                 \\
+        2.l2\_nt      & -0.0163***                                \\
+                      & (0.00633)                                 \\
+        3.l2\_nt      & -0.0151*                                  \\
+                      & (0.00781)                                 \\
+        4.l2\_nt      & -0.0107**                                 \\
+                      & (0.00455)                                 \\
+        2.mh          & -0.0610***                                \\
+                      & (0.00223)                                 \\
+        2.ml          & -0.00593***                               \\
+                      & (0.00214)                                 \\
+        Constant      & -0.208***                                 \\
+                      & (0.00732)                                 \\
+                      &                                           \\
+        Observations  & 1,163,867                                 \\
+        Number of fid & 763                                       \\
+        R-squared     & 0.009                                     \\ \hline
+        \multicolumn{2}{c}{ Standard errors in parentheses}       \\
+        \multicolumn{2}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+    \end{tabular}
+
+
+\end{frame}
+
+
+\section{Summary Statistics}
+
 
 
 \section{Results}
@@ -145,6 +204,23 @@
 % try to provide some graphics
 % provide results of each stage
 % provide results of subsetting firm to big and small
+
+
+\begin{frame}{Results of Stage 2}
+
+
+
+\end{frame}
+
+
+
+
+
+
+% replication package url on github on the Thank you page
+
+
+\section{Appendix}
 
 
 
