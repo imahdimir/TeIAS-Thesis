@@ -1,6 +1,7 @@
 """
 
     """
+
 import struct
 from pathlib import Path
 
@@ -208,16 +209,16 @@ def main() :
     df = pd.read_parquet(fpn.t13)
 
     ##
-    df = filter_out_non_eligible_rows_for_set_1(df)
-
-    ##
-    df = change_adjusted_returns_col_names(df)
-
-    ##
     df = df.sort_values(by = [c.d] , ascending = False)
 
     ##
     df = add_one_and_two_workday_lags_of_news_type(df)
+
+    ##
+    df = filter_out_non_eligible_rows_for_set_1(df)
+
+    ##
+    df = change_adjusted_returns_col_names(df)
 
     ##
     df.to_csv(fpn.ts1 , index = False)

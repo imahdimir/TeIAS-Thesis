@@ -44,11 +44,11 @@ class FPN :
     t9 = dyr.td / 't9.prq'
     t10 = dyr.td / 't10.prq'
     t11 = dyr.td / 't11.prq'
-
     t12 = dyr.td / 't12.prq'
     t13 = dyr.td / 't13.prq'
-
     ts1 = dyr.td / 'stata_1.csv'
+    t14 = dyr.td / 't14.prq'
+    ts2 = dyr.td / 'stata_2.csv'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -142,6 +142,9 @@ class ColName :
     # 13
     l1n = 'lag1_news'
     l2n = 'lag2_news'
+
+    # 14
+    nhbr = 'News_Neighborhood'
 
 class NewsType :
     good = 'Good'

@@ -152,43 +152,6 @@
 
 \begin{frame}
 
-    \begin{tabular}{lc} \hline
-                      & (1)                                       \\
-        VARIABLES     & excessbuyins                              \\ \hline
-                      &                                           \\
-        r1            & -1.843***                                 \\
-                      & (0.0207)                                  \\
-        2.nt          & -0.148***                                 \\
-                      & (0.00633)                                 \\
-        3.nt          & -0.0789***                                \\
-                      & (0.00783)                                 \\
-        4.nt          & -0.0603***                                \\
-                      & (0.00456)                                 \\
-        2.l1\_nt      & -0.0398***                                \\
-                      & (0.00640)                                 \\
-        3.l1\_nt      & -0.0276***                                \\
-                      & (0.00784)                                 \\
-        4.l1\_nt      & -0.0213***                                \\
-                      & (0.00459)                                 \\
-        2.l2\_nt      & -0.0163***                                \\
-                      & (0.00633)                                 \\
-        3.l2\_nt      & -0.0151*                                  \\
-                      & (0.00781)                                 \\
-        4.l2\_nt      & -0.0107**                                 \\
-                      & (0.00455)                                 \\
-        2.mh          & -0.0610***                                \\
-                      & (0.00223)                                 \\
-        2.ml          & -0.00593***                               \\
-                      & (0.00214)                                 \\
-        Constant      & -0.208***                                 \\
-                      & (0.00732)                                 \\
-                      &                                           \\
-        Observations  & 1,163,867                                 \\
-        Number of fid & 763                                       \\
-        R-squared     & 0.009                                     \\ \hline
-        \multicolumn{2}{c}{ Standard errors in parentheses}       \\
-        \multicolumn{2}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
-    \end{tabular}
 
 
 \end{frame}
@@ -206,9 +169,70 @@
 % provide results of subsetting firm to big and small
 
 
-\begin{frame}{Results of Stage 2}
+\begin{frame}{Second Stage Results: Main Result}
+
+    {\fontsize{10}{13} \selectfont
+
+        \begin{tabular}{l*{4}{l}}
+                               & \multicolumn{2}{l}{Institutions} & \multicolumn{2}{l}{Individuals}                         \\
+            \cmidrule(l){2-3} \cmidrule(l){4-5}
+                               & Buy                              & Sell                            & Buy       & Sell      \\
+            \midrule
+            R(-1)              & -1.84***                         & 1.75***                         & 0.55***   & -0.55***  \\
+                               & (0.02)                           & (0.02)                          & (0.01)    & (0.01)    \\
+            R(-2, -5)          & 0.05***                          & -0.08***                        & -0.01*    & -0.00     \\
+                               & (0.01)                           & (0.01)                          & (0.00)    & (0.00)    \\
+            R(-6, -27)         & 0.05***                          & -0.05***                        & -0.03***  & 0.02***   \\
+                               & (0.00)                           & (0.00)                          & (0.00)    & (0.00)    \\
+            R(-28, -119)       & 0.01***                          & -0.01***                        & -0.01***  & 0.00***   \\
+                               & (0.00)                           & (0.00)                          & (0.00)    & (0.00)    \\
+                               &                                  &                                 &           &           \\
+            N. of Unique Firms & 742                              & 742                             & 742       & 742       \\
+            \(R^{2}\)          & 0.9\%                            & 0.9\%                           & 0.5\%     & 0.4\%     \\
+            NObs               & 1,133,473                        & 1,133,473                       & 1,133,473 & 1,133,473 \\
+            \bottomrule
+            % \multicolumn{2}{c}{Standard errors in parentheses}                                     \\
+            % \multicolumn{2}{c}{\textit{t-statistics} are based on panel corrected standard errors} \\
+            % \multicolumn{2}{c}{*** \(p<0.01\), ** \(p<0.05\), * \(p<0.1\)}                         \\
+        \end{tabular}
+    }
+
+\end{frame}
 
 
+\begin{frame}{Second Stage Results: Main Result by Firm Size}
+    % this slide was a bit wide so I tried to fit in the data by abbreviating the columns
+    % fixed effects have been used but not shown in the slides table but they are present in the text.
+    % I removed individuals because their coefficients does not vary I have to change them for now I empheasize on funds
+
+    {\fontsize{11}{12} \selectfont
+
+        \begin{tabular}{l*{4}{l}}
+                               & \multicolumn{4}{l}{Institutions}                                                         \\
+            \cmidrule(l){2-5}
+
+                               & \multicolumn{2}{l}{Large Stocks} & \multicolumn{2}{l}{Small Stocks}                      \\
+            \cmidrule(l){2-3} \cmidrule(l){4-5}
+                               & Buy                              & Sell                             & Buy      & Sell    \\
+            \midrule
+            R(-1)              & -3.22***                         & 3.14***                          & -0.70*** & 0.66*** \\
+                               & (0.04)                           & (0.04)                           & (0.03)   & (0.03)  \\
+            R(-2, -5)          & 0.17***                          & -0.19***                         & -0.05*** & 0.02*   \\
+                               & (0.02)                           & (0.02)                           & (0.01)   & (0.01)  \\
+            R(-6, -27)         & 0.06***                          & -0.06***                         & 0.02***  & 0.00    \\
+                               & (0.01)                           & (0.01)                           & (0.01)   & (0.00)  \\
+            R(-28, -119)       & -0.00                            & -0.00                            & 0.00     & -0.00   \\
+                               & (0.00)                           & (0.00)                           & (0.00)   & (0.00)  \\
+                               &                                  &                                  &          &         \\
+            N. of Unique Firms & 646                              & 646                              & 411      & 411     \\
+            \(R^{2}\)          & 2.2\%                            & 2.1\%                            & 0.2\%    & 0.2\%   \\
+            NObs               & 390,655                          & 390,655                          & 256,712  & 256,712 \\
+            \bottomrule
+            % \multicolumn{2}{c}{Standard errors in parentheses}                                     \\
+            % \multicolumn{2}{c}{\textit{t-statistics} are based on panel corrected standard errors} \\
+            % \multicolumn{2}{c}{*** \(p<0.01\), ** \(p<0.05\), * \(p<0.1\)}                         \\
+        \end{tabular}
+    }
 
 \end{frame}
 
