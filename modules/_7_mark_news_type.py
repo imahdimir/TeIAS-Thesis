@@ -11,7 +11,7 @@ from persiantools.jdatetime import JalaliDate
 from main import c
 from main import cn
 from main import fpn
-from main import nws_type
+from main import nws_type , dyr
 
 # namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 cd = tse_ns.DAllCodalLetters()
@@ -107,6 +107,22 @@ def main() :
     ##
     print('news type distribution:')
     print(df[cn.nws_type].value_counts())
+
+    ##
+    df1 = df.drop_duplicates(subset = [c.ftic , cn.nws_eff_jd])
+
+    ##
+    print('news type distribution after dropping duplicates:')
+    print(df1[cn.nws_type].value_counts())
+
+    ##
+    df1.to_csv(dyr.td / 'news_type.csv' , index = False)
+
+    ##
+
+    ##
+
+    ##
 
 ##
 

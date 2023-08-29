@@ -54,8 +54,8 @@ class Params :
     days_2_rm_after_ipo = 40
     start_end_window = (-60 , -1)
     min_uniq_vals_in_window = 30
-    model_significance_model = .05
-    min_abs_abnormnal_ret = .005  # 0.5% = min abonormal return which considered as a significant one
+    model_significance_level = .1  # rolling CAPM model significance level
+    min_abs_abnormnal_ret = .0025  # min abonormal return which considered as a significant one
 
 class ColName :
     ret = c.ar1dlf + '-modified'

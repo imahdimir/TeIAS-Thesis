@@ -12,9 +12,9 @@ from main import fpn
 from main import pa
 
 def mark_credible_models(df) :
-    """fiter out credible models with significant beta"""
+    """ fiter out credible models with significant beta """
 
-    msk = df[cn.beta_p].le(pa.model_significance_model)
+    msk = df[cn.beta_p].le(pa.model_significance_level)
 
     msk = msk.fillna(False)
 

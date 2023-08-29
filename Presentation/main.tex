@@ -47,7 +47,7 @@
 
 %%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[]{\MakeUppercase{Do Funds Follow the Herd? \\ Evidence from Iran}}
+\title[]{\MakeUppercase{Do Institutions Follow the Herd? \\ Evidence from Iran}}
 \subtitle{}
 
 \author[]{Mahdi Mir \newline Supervised by: Mahdi Heidari}
@@ -85,36 +85,46 @@
 
 
 
-\begin{frame}{Motivation}
+% \begin{frame}{Motivation}
 
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}{The Question}
 
-\end{frame}
-
-
-\begin{frame}{Conculsion}
-
-
-\end{frame}
-
-
-
-\begin{frame}{Related Litretature}
-
-
+    \begin{itemize}
+        \item The ongoing research centers around examining the trading patterns of both Institutional and Individual investors within the Tehran Stock Exchange market.
+        \item Specifically, I am asking whether these Institutions and Individuals tend to follow momentum or anti-momentum strategies when they trade.
+        \item The focus is on Institutions because they're major players in the market, and naturally we expect them to make trades based on fundamentals.
+        \item I am exploring momentum and anti-momentum strategies because of how they can influence market herding. This might push prices far from their real values and even lead to market bubbles.
+    \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}{Litretature Review}
 
 
 
-\end{frame}
+% \begin{frame}{Conculsion}
+
+
+% \end{frame}
+
+
+
+% \begin{frame}{Related Litretature}
+
+
+
+% \end{frame}
+
+
+% \begin{frame}{Litretature Review}
+
+
+
+% \end{frame}
 
 
 
@@ -143,21 +153,138 @@
 
 \section{Methodology}
 
-\subsection{Stage 1}
 
 % explain about two stages and the model in each stage
 % explain measures and defend them
 % explain all variable and their sources and how they are constructed
 % explain the model and the estimation method
 
-\begin{frame}
+\begin{frame}{Methodology}
+    This research has two stages:
 
+    \begin{enumerate}
+        \item The first stage revolves around the categorization of company-specific news as either positive or negative. These categorizations are needed based on their influence on trading patterns of both institutions and individuals.
+        \item In the subsequent stage, the labels assigned during the first phase are utilized to analyze the trading behavior of institutions and individuals within distinct and non-overlapping time frames.
+    \end{enumerate}
+
+    \par
+    More details are in the following slides.
+
+\end{frame}
+
+
+\subsection{Stage 1 : News Labeling}
+
+\begin{frame}
+    \Huge
+    \center
+    Stage 1: News Labeling
+\end{frame}
+
+
+\begin{frame}{Stage 1: Why News Are Important?}
+
+    \begin{itemize}
+        \item Abundant evidence suggests that news pertaining to individual stocks, characterized as either "positive" or "negative," significantly impacts the trading choices made by investors.
+        \item Any study or research design intending to analyze the trading behavior of investors of any type must take into account information related to companies.
+        \item Regrettably, we currently lack a database containing company-specific news curated through assessments and opinions from expert capital market analysts.
+        \item Creating such a dataset would significantly enhance the research landscape within the Tehran Stock Exchange market.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Stage 1: How I Solve The News Challenge?}
+
+    \begin{itemize}
+        \item In the first stage, I suggest a method for categorizing stock-specific news as either "positive" or "negative".
+        \item The labels generated during this initial stage are then employed in the second stage as dummy variables to account for the presence of "positive" and "negative" news associated with each individual stock.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Stage 1: Source of Firm-Specific News}
+
+    \begin{itemize}
+        \item I rely on Codal for firm-specific news.
+        \item I perceive every letter posted on Codal as a news item.
+        \item In the context of Codal, any financial statement, report, PDF, or Excel document that is shared is regarded as a "Codal letter" within the Codal framework.
+        \item Thankfully, each company-specific update on Codal is consistently linked to the respective company's ticker symbol. Each piece of content includes a ticker field.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Stage 1: How I Lebel News as Good or Bad?}
+    To categorize news and systematically determine whether each stock-specific news is positive or negative, I follow this methodology:
+    \begin{itemize}
+        \item Using the adjusted returns data, for each firm-day pair I define a two month period prior to that day.
+        \item Within this moving window, I assess the CAPM model (utilizing a rolling CAPM approach).
+        \item By utilizing the CAPM betas, I compute the anticipated (expected) return for each specific firm-day.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Stage 1: How I Lebel News as Good or Bad? (Cont'd)}
+    \begin{itemize}
+        \item Based on the calculated expected return in the previous step, I ascertain the Abnormal Returns for each given day.
+        \item I combine the computed abnormal return data with the dataset containing news articles (letters sourced from Codal).
+        \item Employing a symmetric threshold, I make determinations whether news should be classified as favorable or unfavorable.
+    \end{itemize}
+
+    A few Remarks:
+    \begin{itemize}
+        \item The outlined steps yield a dataset comprised of trios: firm, day, and corresponding news.
+        \item I haven't detailed the precise procedure and meticulous considerations within this process.
+    \end{itemize}
+
+\end{frame}
+
+
+\subsection{Stage 2 : Trading Behavior}
+
+
+
+\begin{frame}
+    \Huge
+    \center
+    Stage 2: Trading Behavior
+\end{frame}
+
+
+\begin{frame}{Stage 2: What Measure We Are Searching For?}
 
 
 \end{frame}
 
 
-\section{Summary Statistics}
+
+\begin{frame}{Stage 2: How to Measure Trading Activity?}
+    To assess investors' purchasing and selling activities for stock \(i\) at time \(t\), we analyze their excess buying (\(XB_{i,t}\)) and excess selling (\(XS_{i,t}\)) of the stock individually.
+    \[
+        \begin{aligned}
+             & \mathrm{XB}_{i, t}^G=\mathrm{NB}_{i, t}^G-\E\left(\mathrm{NB}_{i, t}\right) \\
+             & \mathrm{XS}_{i, t}^G=\mathrm{NS}_{i, t}^G-\E\left(\mathrm{NS}_{i, t}\right)
+        \end{aligned}
+    \]
+
+    Where:
+    \[
+        \begin{aligned}
+            \mathrm{G}                     \in & \{Institution, Individual\}                                                                                     \\
+            \mathrm{NB}_{i, t}^G=              & \frac{\mathrm{Buy}_{i, t}^G -\operatorname{Sell}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G} \\
+            \mathrm{NS}_{i, t}^G=              & \frac{\mathrm{Sell}_{i, t}^G -\operatorname{Buy}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G}
+        \end{aligned}
+    \]
+
+\end{frame}
+
+
+
+
+% \section{Summary Statistics}
 
 
 
@@ -169,23 +296,43 @@
 % provide results of subsetting firm to big and small
 
 
+\begin{frame}{Stage 1: Results}
+
+    \center
+    \begin{tabular}{lrrr}
+        \toprule
+        News Type & Freq.  & Percent & Cum.   \\
+        \midrule
+        Bad       & 25,703 & 44.78   & 44.78  \\
+        Good      & 25,621 & 44.64   & 89.42  \\
+        Neutral   & 6,075  & 10.58   & 100.00 \\
+        \midrule
+        Total     & 57,399 & 100.00  &        \\
+        \bottomrule
+    \end{tabular}
+
+
+\end{frame}
+
 \begin{frame}{Second Stage Results: Main Result}
 
-    {\fontsize{10}{13} \selectfont
+    {\fontsize{10}{11} \selectfont
 
         \begin{tabular}{l*{4}{l}}
                                & \multicolumn{2}{l}{Institutions} & \multicolumn{2}{l}{Individuals}                         \\
             \cmidrule(l){2-3} \cmidrule(l){4-5}
                                & Buy                              & Sell                            & Buy       & Sell      \\
             \midrule
-            R(-1)              & -1.84***                         & 1.75***                         & 0.55***   & -0.55***  \\
-                               & (0.02)                           & (0.02)                          & (0.01)    & (0.01)    \\
-            R(-2, -5)          & 0.05***                          & -0.08***                        & -0.01*    & -0.00     \\
+            \(R(-1)\)          & -1.842***                        & 1.755***                        & 0.550***  & -0.550*** \\
+                               & (0.08)                           & (0.09)                          & (0.03)    & (0.03)    \\
+            \(R(-2, -5)\)      & 0.046*                           & -0.083***                       & -0.006    & -0.003    \\
+                               & (0.03)                           & (0.02)                          & (0.01)    & (0.01)    \\
+            \(R(-6, -27)\)     & 0.053***                         & -0.049***                       & -0.028*** & 0.024***  \\
                                & (0.01)                           & (0.01)                          & (0.00)    & (0.00)    \\
-            R(-6, -27)         & 0.05***                          & -0.05***                        & -0.03***  & 0.02***   \\
+            \(R(-28, -119)\)   & 0.007*                           & -0.012***                       & -0.006*** & 0.005***  \\
                                & (0.00)                           & (0.00)                          & (0.00)    & (0.00)    \\
-            R(-28, -119)       & 0.01***                          & -0.01***                        & -0.01***  & 0.00***   \\
-                               & (0.00)                           & (0.00)                          & (0.00)    & (0.00)    \\
+                               &                                  &                                 &           &           \\
+            Mentioned FEs      & YES                              & YES                             & YES       & YES       \\
                                &                                  &                                 &           &           \\
             N. of Unique Firms & 742                              & 742                             & 742       & 742       \\
             \(R^{2}\)          & 0.9\%                            & 0.9\%                           & 0.5\%     & 0.4\%     \\
@@ -200,41 +347,43 @@
 \end{frame}
 
 
-\begin{frame}{Second Stage Results: Main Result by Firm Size}
-    % this slide was a bit wide so I tried to fit in the data by abbreviating the columns
-    % fixed effects have been used but not shown in the slides table but they are present in the text.
-    % I removed individuals because their coefficients does not vary I have to change them for now I empheasize on funds
+% \begin{frame}{Second Stage Results: Main Result by Firm Size}
+%     % this slide was a bit wide so I tried to fit in the data by abbreviating the columns
+%     % fixed effects have been used but not shown in the slides table but they are present in the text.
+%     % I removed individuals because their coefficients does not vary I have to change them for now I empheasize on funds
 
-    {\fontsize{11}{12} \selectfont
+%     {\fontsize{10}{10} \selectfont
 
-        \begin{tabular}{l*{4}{l}}
-                               & \multicolumn{4}{l}{Institutions}                                                         \\
-            \cmidrule(l){2-5}
+%         \begin{tabular}{l*{4}{l}}
+%                                & \multicolumn{4}{l}{Institutions}                                                           \\
+%             \cmidrule(l){2-5}
 
-                               & \multicolumn{2}{l}{Large Stocks} & \multicolumn{2}{l}{Small Stocks}                      \\
-            \cmidrule(l){2-3} \cmidrule(l){4-5}
-                               & Buy                              & Sell                             & Buy      & Sell    \\
-            \midrule
-            R(-1)              & -3.22***                         & 3.14***                          & -0.70*** & 0.66*** \\
-                               & (0.04)                           & (0.04)                           & (0.03)   & (0.03)  \\
-            R(-2, -5)          & 0.17***                          & -0.19***                         & -0.05*** & 0.02*   \\
-                               & (0.02)                           & (0.02)                           & (0.01)   & (0.01)  \\
-            R(-6, -27)         & 0.06***                          & -0.06***                         & 0.02***  & 0.00    \\
-                               & (0.01)                           & (0.01)                           & (0.01)   & (0.00)  \\
-            R(-28, -119)       & -0.00                            & -0.00                            & 0.00     & -0.00   \\
-                               & (0.00)                           & (0.00)                           & (0.00)   & (0.00)  \\
-                               &                                  &                                  &          &         \\
-            N. of Unique Firms & 646                              & 646                              & 411      & 411     \\
-            \(R^{2}\)          & 2.2\%                            & 2.1\%                            & 0.2\%    & 0.2\%   \\
-            NObs               & 390,655                          & 390,655                          & 256,712  & 256,712 \\
-            \bottomrule
-            % \multicolumn{2}{c}{Standard errors in parentheses}                                     \\
-            % \multicolumn{2}{c}{\textit{t-statistics} are based on panel corrected standard errors} \\
-            % \multicolumn{2}{c}{*** \(p<0.01\), ** \(p<0.05\), * \(p<0.1\)}                         \\
-        \end{tabular}
-    }
+%                                & \multicolumn{2}{l}{Large Stocks} & \multicolumn{2}{l}{Small Stocks}                        \\
+%             \cmidrule(l){2-3} \cmidrule(l){4-5}
+%                                & Buy                              & Sell                             & Buy       & Sell     \\
+%             \midrule
+%             \(R(-1)\)             & -3.215***                        & 3.137***                         & -0.705*** & 0.662*** \\
+%                                   & (0.10)                           & (0.12)                           & (0.05)    & (0.05)   \\
+%             \(R(-2, -5)\)         & 0.175***                         & -0.190***                        & -0.048*   & 0.022    \\
+%                                   & (0.04)                           & (0.04)                           & (0.03)    & (0.02)   \\
+%             \(R(-6, -27)\)        & 0.063***                         & -0.057***                        & 0.017     & 0.002    \\
+%                                   & (0.02)                           & (0.02)                           & (0.02)    & (0.01)   \\
+%             \(R(-28, -119)\)      & -0.003                           & -0.000                           & 0.003     & -0.000   \\
+%                                & (0.00)                           & (0.00)                           & (0.01)    & (0.00)   \\
+%                                &                                  &                                  &           &          \\
+%             Mentioned FEs      & YES                              & YES                              & YES       & YES      \\
+%                                &                                  &                                  &           &          \\
+%             N. of Unique Firms & 646                              & 646                              & 411       & 411      \\
+%             \(R^{2}\)          & 2.2\%                            & 2.1\%                            & 0.2\%     & 0.2\%    \\
+%             NObs               & 390,655                          & 390,655                          & 256,712   & 256,712  \\
+%             \bottomrule
+%             % \multicolumn{2}{c}{Standard errors in parentheses}                                     \\
+%             % \multicolumn{2}{c}{\textit{t-statistics} are based on panel corrected standard errors} \\
+%             % \multicolumn{2}{c}{*** \(p<0.01\), ** \(p<0.05\), * \(p<0.1\)}                         \\
+%         \end{tabular}
+%     }
 
-\end{frame}
+% \end{frame}
 
 
 
