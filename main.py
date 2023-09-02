@@ -89,6 +89,8 @@ class ColName :
 
     nbss = 'Net-Buy-Share-Ins'
     nbsd = 'Net-Buy-Share-Ind'
+    nss = 'Net-Sell-Ins'
+    nsd = 'Net-Sell-Ind'
 
     avs = 'Daily-Avg-Net-Buy-Share-Ins'
     avd = 'Daily-Avg-Net-Buy-Share-Ind'

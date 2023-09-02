@@ -5,7 +5,9 @@
 \headcommand {\beamer@sectionpages {1}{2}}
 \headcommand {\beamer@subsectionpages {1}{2}}
 \headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
-\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{The Question}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{The Question}{0}}
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\beamer@sectionpages {3}{3}}
 \headcommand {\beamer@subsectionpages {3}{3}}
@@ -39,15 +41,36 @@
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\slideentry {3}{2}{3}{14/14}{Stage 2 : Trading Behavior}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@sectionpages {5}{14}}
-\headcommand {\beamer@subsectionpages {12}{14}}
-\headcommand {\sectionentry {4}{Results}{15}{Results}{0}}
-\headcommand {\slideentry {4}{0}{1}{15/15}{}{0}}
+\headcommand {\slideentry {3}{2}{4}{15/15}{Stage 2 : Trading Behavior}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {4}{0}{2}{16/16}{}{0}}
+\headcommand {\slideentry {3}{2}{5}{16/16}{Stage 2 : Trading Behavior}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@partpages {1}{16}}
-\headcommand {\beamer@subsectionpages {17}{16}}
-\headcommand {\beamer@sectionpages {17}{16}}
-\headcommand {\beamer@documentpages {16}}
-\headcommand {\gdef \inserttotalframenumber {16}}
+\headcommand {\slideentry {3}{2}{6}{17/17}{Stage 2 : Trading Behavior}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {3}{2}{7}{18/18}{Stage 2 : Trading Behavior}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@sectionpages {5}{18}}
+\headcommand {\beamer@subsectionpages {12}{18}}
+\headcommand {\sectionentry {4}{Results}{19}{Results}{0}}
+\headcommand {\slideentry {4}{0}{1}{19/19}{}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{20}{First Stage Result}}
+\headcommand {\slideentry {4}{1}{1}{20/20}{First Stage Result}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{21}{Second Stage Result}}
+\headcommand {\slideentry {4}{2}{1}{21/21}{Second Stage Result}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@sectionpages {19}{21}}
+\headcommand {\beamer@subsectionpages {21}{21}}
+\headcommand {\sectionentry {5}{Conculsion}{22}{Conculsion}{0}}
+\headcommand {\slideentry {5}{0}{1}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {5}{0}{2}{23/23}{}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@partpages {1}{23}}
+\headcommand {\beamer@subsectionpages {24}{23}}
+\headcommand {\beamer@sectionpages {24}{23}}
+\headcommand {\beamer@documentpages {23}}
+\headcommand {\gdef \inserttotalframenumber {23}}

@@ -70,6 +70,31 @@ def cal_net_buy_share(df: pd.DataFrame) -> pd.DataFrame :
 
     return df
 
+def cal_net_sell_share(df: pd.DataFrame) -> pd.DataFrame :
+    df[cn.nss] = - df[cn.nbss]
+    df[cn.nsd] = - df[cn.nbsd]
+    return df
+
+def cal_excess_buy_and_sell(df) :
+    cols = {
+            0 : (cn.nbss , 1 , cd.bsva , cn.avex_buy_s) ,
+            1 : (cn.nbss , -1 , cd.ssva , cn.avex_sell_s) ,
+            2 : (cn.nbsd , 1 , cd.bdva , cn.avex_buy_d) ,
+            3 : (cn.nbsd , -1 , cd.sdva , cn.avex_sell_d) ,
+            }
+
+    for vl in cols.values() :
+        df['h'] = df[vl[0]].copy()
+
+        df['h'] = df['h'] * vl[1]
+
+        msk = df[vl[2]].astype('Int64').eq(0)
+        df.loc[msk , 'h'] = np.nan
+
+        df[vl[3]] = df.groupby(c.d)['h'].transform('mean')
+
+    df = df.drop(columns = 'h')
+
 def cal_simple_daily_average(df) :
     cols = {
             cn.nbss : cn.avs ,
@@ -160,16 +185,17 @@ def main() :
     df = cal_net_buy_share(df)
 
     ##
-    df = cal_simple_daily_average(df)
+    e_buy = 'Expected_Buy'
+
+    df[e_buy] = df[[cn.nbss , cn.nbsd]].mean(axis = 1)
 
     ##
-    df = cal_daily_average_for_traded(df)
+    df[cn.xb_s] = df[cn.nbss] - df[e_buy]
+    df[cn.xb_d] = df[cn.nbsd] - df[e_buy]
 
     ##
-    df = cal_daily_average_excluding_zeros(df)
 
     ##
-    df = cal_excess_buy_and_sell(df)
 
     ##
     df.to_parquet(fpn.t8 , index = False)
@@ -184,3 +210,19 @@ def main() :
 if __name__ == "__main__" :
     main()
     print(f'{Path(__file__).name} Done!')
+
+##
+def pre_version() :
+    pass
+
+    ##
+    df = cal_simple_daily_average(df)
+
+    ##
+    df = cal_daily_average_for_traded(df)
+
+    ##
+    df = cal_daily_average_excluding_zeros(df)
+
+    ##
+    df = cal_excess_buy_and_sell(df)

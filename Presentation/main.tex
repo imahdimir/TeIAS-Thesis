@@ -91,12 +91,14 @@
 % \end{frame}
 
 
+\subsection{The Question}
+
 \begin{frame}{The Question}
 
     \begin{itemize}
         \item The ongoing research centers around examining the trading patterns of both Institutional and Individual investors within the Tehran Stock Exchange market.
-        \item Specifically, I am asking whether these Institutions and Individuals tend to follow momentum or anti-momentum strategies when they trade.
-        \item The focus is on Institutions because they're major players in the market, and naturally we expect them to make trades based on fundamentals.
+        \item Specifically, I am asking whether these institutions and individuals tend to follow momentum or anti-momentum strategies when they trade.
+        \item The focus is on institutions because they're major players in the market, and naturally we expect them to make trades based on fundamentals.
         \item I am exploring momentum and anti-momentum strategies because of how they can influence market herding. This might push prices far from their real values and even lead to market bubbles.
     \end{itemize}
 
@@ -254,32 +256,124 @@
 \end{frame}
 
 
-\begin{frame}{Stage 2: What Measure We Are Searching For?}
+% \begin{frame}{Stage 2: What Measure We Are Searching For?}
 
 
-\end{frame}
+% \end{frame}
 
 
 
 \begin{frame}{Stage 2: How to Measure Trading Activity?}
     To assess investors' purchasing and selling activities for stock \(i\) at time \(t\), we analyze their excess buying (\(XB_{i,t}\)) and excess selling (\(XS_{i,t}\)) of the stock individually.
+    \\
+    \par
+    I define the excess buying and selling for the group \(\mathrm{G}\) as follows:
     \[
         \begin{aligned}
-             & \mathrm{XB}_{i, t}^G=\mathrm{NB}_{i, t}^G-\E\left(\mathrm{NB}_{i, t}\right) \\
-             & \mathrm{XS}_{i, t}^G=\mathrm{NS}_{i, t}^G-\E\left(\mathrm{NS}_{i, t}\right)
+             & \mathrm{XB}_{i, t}^G=\mathrm{NB}_{i, t}^G - \E\left[\mathrm{NB}_{i, t}^G\right] \\
+             & \mathrm{XS}_{i, t}^G=\mathrm{NS}_{i, t}^G - \E\left[\mathrm{NS}_{i, t}^G\right]
         \end{aligned}
     \]
 
     Where:
     \[
         \begin{aligned}
-            \mathrm{G}                     \in & \{Institution, Individual\}                                                                                     \\
-            \mathrm{NB}_{i, t}^G=              & \frac{\mathrm{Buy}_{i, t}^G -\operatorname{Sell}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G} \\
-            \mathrm{NS}_{i, t}^G=              & \frac{\mathrm{Sell}_{i, t}^G -\operatorname{Buy}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G}
+            \mathrm{G}                     \in & \{Institution, Individual\} \\
         \end{aligned}
     \]
 
 \end{frame}
+
+
+\begin{frame}{Stage 2: How to Measure Trading Activity?}
+    The defenition of \(\mathrm{NB}_{i, t}^G\) and \(\mathrm{NS}_{i, t}^G\) are as follows:
+    \[
+        \begin{aligned}
+            \mathrm{NB}_{i, t}^G= & \frac{\mathrm{Buy}_{i, t}^G -\operatorname{Sell}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G} \\
+            \mathrm{NS}_{i, t}^G= & \frac{\mathrm{Sell}_{i, t}^G -\operatorname{Buy}_{i, t}^G}{\mathrm{Buy}_{i, t}^G +\operatorname{Sell}_{i, t}^G}
+        \end{aligned}
+    \]
+
+    Referring to the existing literature, I regrard the expeted value of
+    the \(\mathrm{NB}_{i, t}^G\) and \(\mathrm{NS}_{i, t}^G\) equal to
+    average of \(\mathrm{NB}_{i, t}^G\) and \(\mathrm{NS}_{i, t}^G\) for
+    all stocks that investor group \(\mathrm{G}\) trades at time \(t\), respectively.
+
+\end{frame}
+
+
+\begin{frame}{Stage 2: The Model}
+    We utilize fixed-effects ordinary least squares (OLS) regressions on panel data with t–statistics adjusted for panel-corrected standard errors (PCSE).
+    \[
+        y_{i,t} = \alpha + \beta R1 + \gamma R2 + \delta R6 + \zeta R28 + \sum_i \kappa_i * d_i + \epsilon
+    \]
+    where:
+    \[
+        y \in \{XB_{i,t}^\mathrm{Ins}, \; XS_{i,t}^\mathrm{Ins}, \; XB_{i,t}^\mathrm{Ind}, \; XS_{i,t}^\mathrm{Ind}\}
+    \]
+
+\end{frame}
+
+
+\begin{frame}{Stage 2: The Model, Independent Variables}
+    \[
+        y_{i,t} = \alpha + \beta R1 + \gamma R2 + \delta R6 + \zeta R28 + \sum_i \kappa_i * d_i + \epsilon
+    \]
+
+    where:
+    \[
+        \begin{aligned}
+            R1 \triangleq  & R (-1) \; \text{\small{: The one-day holding period prior to trading day.}}
+            \\
+            R2 \triangleq  & R(-2, -5) \; \text{\small{: The 2-5 days holding period prior to trading day.}}
+            \\
+            R6 \triangleq  & R(-6, -27) \; \text{\small{: The 6-27 days holding period prior to trading day.}}
+            \\
+            R28 \triangleq & R(-28, -119) \; \text{\small{: The 28-119 days holding period prior to trading day.}}
+        \end{aligned}
+    \]
+
+    Note that:
+    \begin{itemize}
+        \item The holding period returns are market-adjusted returns. The adjusted return minus the market return.
+        \item The market return is the TSE Overall Index. All days are working days.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Stage 2: The Model, Control Variables}
+    In my analyses, I incorporate various control variables that have previously been identified as influencing investor trading behavior.
+    \[
+        y_{i,t} = \alpha + \beta R1 + \gamma R2 + \delta R6 + \zeta R28 + \sum_i \kappa_i * d_i + \epsilon
+    \]
+    The control variables are:
+    \begin{itemize}
+        \item To control for news, I include dummies that identify whether the contemporaneous, one-day and two-day lagged stock-speciﬁc news announcements are ‘‘good’’ or ‘‘bad’’.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Stage 2: The Model, Control Variables}
+
+    \[
+        y_{i,t} = \alpha + \beta R1 + \gamma R2 + \delta R6 + \zeta R28 + \sum_i \kappa_i * d_i + \epsilon
+    \]
+    The control variables are:
+    \begin{itemize}
+        \item To control for news, I include dummies that identify whether the contemporaneous, one-day and two-day lagged stock-speciﬁc news announcements are ‘‘good’’ or ‘‘bad’’ (6 dummies).
+        \item I also include dummies to capture day-of-the-week effects. (4 dummies)
+        \item And two dummy variables for ‘reference point’ eﬀects, which equal one if the stock price is at the monthly highest or lowest level and zero otherwise.
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
 
 
 
@@ -290,15 +384,28 @@
 
 \section{Results}
 
+\begin{frame}
+    \Huge
+    \center
+    Results
+\end{frame}
+
 % provide summary statistics of data in each stage
 % try to provide some graphics
 % provide results of each stage
 % provide results of subsetting firm to big and small
 
+\subsection{First Stage Result}
 
-\begin{frame}{Stage 1: Results}
+\begin{frame}{First Stage: Results}
+
+    \begin{itemize}
+        \item The first stage of the research is to label the news as good or bad.
+        \item The following table shows the distribution of news articles that have been labeled as good or bad by the explained method.
+    \end{itemize}
 
     \center
+
     \begin{tabular}{lrrr}
         \toprule
         News Type & Freq.  & Percent & Cum.   \\
@@ -313,6 +420,10 @@
 
 
 \end{frame}
+
+
+\subsection{Second Stage Result}
+
 
 \begin{frame}{Second Stage Results: Main Result}
 
@@ -345,6 +456,34 @@
     }
 
 \end{frame}
+
+\section{Conculsion}
+
+\begin{frame}{Main Result Interpretation}
+
+    \begin{itemize}
+        \item The findings suggest that institutions tend to go against momentum trading in the context of a one-day holding period. Conversely, for the three longer time horizons, institutions seem to adopt a momentum-oriented strategy.
+        \item On the other hand, the results reveal that individuals engage in momentum trading within a one-day holding period but shift towards an anti-momentum approach for longer horizons.
+        \item Overall, the trading behaviors of institutional and individual traders exhibit a notable counteractive nature.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Conculsion}
+
+    \begin{itemize}
+        \item The present study introduces an approach to categorize stock-specific news into positive and negative classifications.
+        \item In the context of a one-day timeframe, institutional traders appear to adopt an anti-momentum approach, whereas they seem to embrace a momentum strategy over longer periods.
+        \item The findings highlight systematic distinctions between institutions and individuals regarding their responses to historical price trends, as well as their varying degrees of adherence to momentum and contrarian strategies.
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
 
 
 % \begin{frame}{Second Stage Results: Main Result by Firm Size}
