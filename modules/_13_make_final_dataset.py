@@ -18,21 +18,8 @@ from main import nws_type
 cl = tse_ns.DAllCodalLetters()
 cd = tse_ns.DIndInsCols()
 
-def get_measures_data_keep_relevant_cols() :
+def get_measures_data() :
     df = pd.read_parquet(fpn.t8)
-
-    cols = {
-            c.ftic  : None ,
-            c.d     : None ,
-            c.jd    : None ,
-            cn.xb_s : None ,
-            cn.xs_s : None ,
-            cn.xb_d : None ,
-            cn.xs_d : None ,
-            }
-
-    df = df[cols.keys()]
-
     return df
 
 def get_market_adjusted_returns_data_and_keep_relevant_cols() :
@@ -130,7 +117,7 @@ def read_firm_size_terciles_data() :
 
 def filter_out_non_eligible_rows_for_set_1(df) :
     msk = df[c.is_tic_open].eq(True)
-    msk &= df[cn.nws_type].ne(nws_type.unk)
+    msk &= ~ df[cn.nws_type].isin([nws_type.unk , nws_type.neutral])
     msk &= df[cn.nws_type].notna()
 
     return df[msk]
@@ -163,7 +150,7 @@ def main() :
     pass
 
     ##
-    df = get_measures_data_keep_relevant_cols()
+    df = get_measures_data()
 
     ##
     df_r = get_market_adjusted_returns_data_and_keep_relevant_cols()
@@ -239,3 +226,87 @@ def test() :
     pass
 
     ##
+    def get_sum_stat_of_final_data() :
+        pass
+
+        ##
+        df = pd.read_parquet(fpn.t13)
+
+        ##
+        df[c.d].min()
+        ##
+        df[c.d].max()
+
+        ##
+        df[c.d].nunique()
+
+        ##
+        cd = tse_ns.DIndInsCols()
+
+        for cl in [cd.bdc , cd.bsc , cd.sdc , cd.ssc] :
+            msk = df[cl].ne('0')
+            df1 = df[msk]
+            print(len(df1))
+
+        ##
+        vals = []
+        for cl in [cd.bdv , cd.bsv , cd.sdv , cd.ssv] :
+            sr = df[cl].astype(int)
+            print(sr.sum())
+            vals.append(sr.sum())
+
+        ##
+        vals
+
+        ##
+        v1 = [x / 10 ** 9 for x in vals]
+
+        ##
+        v1
+
+        ##
+        v2 = [x.round(1) for x in v1]
+        v2
+
+        ##
+        vals = []
+        for cl in [cd.bdva , cd.bsva , cd.sdva , cd.ssva] :
+            sr = df[cl].astype(int)
+            print(sr.sum())
+            vals.append(sr.sum())
+
+        ##
+        vals
+
+        ##
+        v1 = [x / 10 ** 13 for x in vals]
+
+        ##
+        v1
+
+        ##
+        v2 = [x.round(1) for x in v1]
+        v2
+
+        ##
+        vals = []
+        for cl in [cd.bdc , cd.bsc , cd.sdc , cd.ssc] :
+            sr = df[cl].astype(int)
+            print(sr.mean())
+            vals.append(sr.mean())
+
+        ##
+
+        vals
+
+        ##
+        v1 = [x for x in vals]
+
+        ##
+        v1
+
+        ##
+        v2 = [x.round(1) for x in v1]
+        v2
+
+##
