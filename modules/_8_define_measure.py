@@ -17,30 +17,19 @@ from main import tse_ns
 # namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 cd = tse_ns.DIndInsCols()
 
-def keep_relevant_cols(df: pd.DataFrame) -> pd.DataFrame :
-    cols = {
-            c.ftic  : None ,
-            c.d     : None ,
-            c.jd    : None ,
-            cd.bdva : None ,
-            cd.bsva : None ,
-            cd.sdva : None ,
-            cd.ssva : None ,
-            }
-
-    df = df[cols.keys()]
-
-    return df
-
 def drop_not_balanced_rows(df: pd.DataFrame) -> pd.DataFrame :
     """
+
     drop rows that are not balanced in the sense that the sum of buy and sell
     values are not equal market wise
+
     """
+
     a1 = df[cd.bdva].astype('Int64')
     b1 = df[cd.bsva].astype('Int64')
     c1 = df[cd.sdva].astype('Int64')
     d1 = df[cd.ssva].astype('Int64')
+
     df['c'] = (a1 + b1) - (c1 + d1)
 
     msk = df['c'].ne(0)
@@ -165,18 +154,16 @@ def main() :
 
     ##
 
-    # get all Individual Institutional daily trade data
+    # get all Individual-Institutional daily trade data
     gdr = GDR(gdu.src_d_ins_ind)
 
     ##
     gdr.clone_overwrite()
 
     ##
-    # read individual institutional daily trade data
-    df = gdr.read_data()
 
-    ##
-    df = keep_relevant_cols(df)
+    # read Individual-Institutional daily trade data
+    df = gdr.read_data()
 
     ##
     df = drop_not_balanced_rows(df)

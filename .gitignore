@@ -4,6 +4,7 @@ venv
 temp_data/
 paper
 GitHubData
+STATA-Data
 
 # General
 .DS_Store

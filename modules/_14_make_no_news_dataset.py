@@ -14,7 +14,7 @@ from main import c
 from main import cn
 from main import fpn
 from main import nws_type
-from modules._13_make_final_dataset import get_measures_data_keep_relevant_cols
+from modules._13_make_final_dataset import get_measures_data
 from modules._13_make_final_dataset import \
     get_market_adjusted_returns_data_and_keep_relevant_cols
 from modules._13_make_final_dataset import read_news_data_keep_revelant_cols
@@ -82,7 +82,7 @@ def main() :
     pass
 
     ##
-    df = get_measures_data_keep_relevant_cols()
+    df = get_measures_data()
 
     ##
     df_r = get_market_adjusted_returns_data_and_keep_relevant_cols()
