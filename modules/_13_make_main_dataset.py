@@ -22,7 +22,7 @@ def get_measures_data() :
     df = pd.read_parquet(fpn.t8)
     return df
 
-def get_market_adjusted_returns_data_and_keep_relevant_cols() :
+def get_market_adjusted_returns_keep_relevant_cols() :
     df1 = pd.read_parquet(fpn.t9)
 
     cols = {
@@ -115,10 +115,26 @@ def read_firm_size_terciles_data() :
 
     return df
 
+def gen_jyear(df) :
+    df[c.jyr] = df[c.jd].str[:4]
+    return df
+
+def add_one_and_two_workday_lags_of_news_type(df) :
+    """ shifting this way is not 100% correct, but it is good enough for now
+    there might be open days not in the data set. but lag in stata does not work
+    because it considers dates and not workdays.
+    """
+    df[cn.l1n] = df.groupby(c.ftic)[cn.nws_type].shift(-1)
+    df[cn.l2n] = df.groupby(c.ftic)[cn.nws_type].shift(-2)
+
+    return df
+
 def filter_out_non_eligible_rows_for_set_1(df) :
     msk = df[c.is_tic_open].eq(True)
-    msk &= ~ df[cn.nws_type].isin([nws_type.unk , nws_type.neutral])
-    msk &= df[cn.nws_type].notna()
+
+    for col in [cn.nws_type , cn.l1n , cn.l2n] :
+        msk &= ~ df[col].isin([nws_type.unk , nws_type.neutral])
+        msk &= df[col].notna()
 
     return df[msk]
 
@@ -136,16 +152,6 @@ def change_adjusted_returns_col_names(df) :
 
     return df
 
-def add_one_and_two_workday_lags_of_news_type(df) :
-    """ shifting this way is not 100% correct, but it is good enough for now
-    there might be open days not in the data set. but lag in stata does not work
-    because it considers dates and not workdays.
-    """
-    df[cn.l1n] = df.groupby(c.ftic)[cn.nws_type].shift(-1)
-    df[cn.l2n] = df.groupby(c.ftic)[cn.nws_type].shift(-2)
-
-    return df
-
 def main() :
     pass
 
@@ -153,7 +159,7 @@ def main() :
     df = get_measures_data()
 
     ##
-    df_r = get_market_adjusted_returns_data_and_keep_relevant_cols()
+    df_r = get_market_adjusted_returns_keep_relevant_cols()
 
     ##
 
@@ -199,6 +205,9 @@ def main() :
     df = df.sort_values(by = [c.d] , ascending = False)
 
     ##
+    df = gen_jyear(df)
+
+    ##
     df = add_one_and_two_workday_lags_of_news_type(df)
 
     ##
@@ -208,9 +217,7 @@ def main() :
     df = change_adjusted_returns_col_names(df)
 
     ##
-    df.to_csv(fpn.ts1 , index = False)
-
-    ##
+    df.to_csv(fpn.main , index = False)
 
 ##
 

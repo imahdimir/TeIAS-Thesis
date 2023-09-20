@@ -2,11 +2,9 @@
 
     """
 
-import struct
 from pathlib import Path
 
 import pandas as pd
-import requests
 from mirutil.df import save_df_as_prq
 from namespace_mahdimir import tse as tse_ns
 
@@ -14,17 +12,22 @@ from main import c
 from main import cn
 from main import fpn
 from main import nws_type
-from modules._13_make_final_dataset import get_measures_data
-from modules._13_make_final_dataset import \
-    get_market_adjusted_returns_data_and_keep_relevant_cols
-from modules._13_make_final_dataset import read_news_data_keep_revelant_cols
-from modules._13_make_final_dataset import add_news_data_to_baseline_data
-from modules._13_make_final_dataset import read_weekday_data
-from modules._13_make_final_dataset import (read_refrence_points_data ,
-                                            change_adjusted_returns_col_names , )
+from modules._13_make_main_dataset import add_news_data_to_baseline_data
+from modules._13_make_main_dataset import change_adjusted_returns_col_names
+from modules._13_make_main_dataset import \
+    get_market_adjusted_returns_keep_relevant_cols
+from modules._13_make_main_dataset import get_measures_data
+from modules._13_make_main_dataset import read_news_data_keep_revelant_cols
+from modules._13_make_main_dataset import read_refrence_points_data
+from modules._13_make_main_dataset import read_weekday_data
 
 cl = tse_ns.DAllCodalLetters()
 cd = tse_ns.DIndInsCols()
+
+class Param :
+    days_2_rm = 5
+
+pa = Param()
 
 def mark_news_neighborhood_by_firm(df) :
     has_news = 'Has_News'
@@ -43,8 +46,8 @@ def mark_news_neighborhood_by_firm(df) :
 
     df = df.sort_values(by = [c.d] , ascending = False)
 
-    df[nhbr1] = df.groupby(c.ftic)[has_news].ffill(3)
-    df[nhbr2] = df.groupby(c.ftic)[has_news].bfill(3)
+    df[nhbr1] = df.groupby(c.ftic)[has_news].ffill(pa.days_2_rm)
+    df[nhbr2] = df.groupby(c.ftic)[has_news].bfill(pa.days_2_rm)
 
     nhbr = 'News_Neighborhood'
 
@@ -68,10 +71,8 @@ def rm_non_eligible_rows(df) :
 
 def rm_excess_cols(df) :
     cols = {
-            c.jd          : None ,
-            c.is_tic_open : None ,
-            cn.nws_type   : None ,
-            cn.nhbr       : None ,
+            cn.nws_type : None ,
+            cn.nhbr     : None ,
             }
 
     df = df.drop(columns = cols.keys())
@@ -85,7 +86,7 @@ def main() :
     df = get_measures_data()
 
     ##
-    df_r = get_market_adjusted_returns_data_and_keep_relevant_cols()
+    df_r = get_market_adjusted_returns_keep_relevant_cols()
 
     ##
 
@@ -134,7 +135,7 @@ def main() :
     df = change_adjusted_returns_col_names(df)
 
     ##
-    df.to_csv(fpn.ts2 , index = False)
+    df.to_csv(fpn.no_nws , index = False)
 
     ##
 
@@ -144,11 +145,3 @@ def main() :
 if __name__ == "__main__" :
     main()
     print(f'{Path(__file__).name} Done!')
-
-##
-
-
-def test() :
-    pass
-
-    ##

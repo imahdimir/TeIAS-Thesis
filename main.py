@@ -28,6 +28,7 @@ class GDU :
 
 class Dirs :
     td = Path('temp_data/')
+    sd = Path('STATA-Data/')
 
 class FPN :
     dyr = Dirs()
@@ -46,9 +47,12 @@ class FPN :
     t11 = dyr.td / 't11.prq'
     t12 = dyr.td / 't12.prq'
     t13 = dyr.td / 't13.prq'
-    ts1 = dyr.td / 'stata_1.csv'
+
+    main = dyr.sd / 'main.csv'
+
     t14 = dyr.td / 't14.prq'
-    ts2 = dyr.td / 'stata_2.csv'
+
+    no_nws = dyr.sd / 'no_news.csv'
 
 class Params :
     days_2_rm_after_ipo = 40
@@ -87,33 +91,26 @@ class ColName :
     nws_eff_jd = 'News-Effective-JDate'
     nws_type = 'NewsType'
 
-    nbss = 'Net-Buy-Share-Ins'
-    nbsd = 'Net-Buy-Share-Ind'
-    nss = 'Net-Sell-Ins'
-    nsd = 'Net-Sell-Ind'
+    # 8
+    sti = 'Ins-Trade-Imbalance'
+    dti = 'Ind-Trade-Imbalance'
 
-    avs = 'Daily-Avg-Net-Buy-Share-Ins'
-    avd = 'Daily-Avg-Net-Buy-Share-Ind'
+    sti0 = 'Ins-Trade-Imbalance-fillna_0'
+    dti0 = 'Ind-Trade-Imbalance-fillna_0'
 
-    avts = 'Daily-Avg-Net-Buy-Share-Ins-Traded'
-    avtd = 'Daily-Avg-Net-Buy-Share-Ind-Traded'
+    scb = 'Ins-Conditional-Buy-Avg'
+    scs = 'Ins-Conditional-Sell-Avg'
+    dcb = 'Ind-Conditional-Buy-Avg'
+    dcs = 'Ind-Conditional-Sell-Avg'
 
-    avex_buy_s = 'Daily-Avg-Net-Buy-Share-Ins-Excl-Zeros'
-    avex_sell_s = 'Daily-Avg-Net-Sell-Share-Ins-Excl-Zeros'
-    avex_buy_d = 'Daily-Avg-Net-Buy-Share-Ind-Excl-Zeros'
-    avex_sell_d = 'Daily-Avg-Net-Sell-Share-Ind-Excl-Zeros'
+    sxb = 'Ins-XB'
+    sxs = 'Ins-XS'
 
-    xb_smpl_s = 'Excess-Buy-Simple-Ins'
-    xb_smpl_d = 'Excess-Buy-Simple-Ind'
+    dxb = 'Ind-XB'
+    dxs = 'Ind-XS'
 
-    xb_smpl_trd_s = 'Excess-Buy-Simple-Ins-Traded'
-    xb_smpl_trd_d = 'Excess-Buy-Simple-Ind-Traded'
-
-    xb_s = 'Excess-Buy-Ins'
-    xs_s = 'Excess-Sell-Ins'
-
-    xb_d = 'Excess-Buy-Ind'
-    xs_d = 'Excess-Sell-Ind'
+    sci0 = 'Ins-Count-Imbalance-fillna_0'
+    dci0 = 'Ind-Count-Imbalance-fillna_0'
 
     # module 9
     rm1 = 'R(-1)'

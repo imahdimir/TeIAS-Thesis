@@ -1,0 +1,73 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx2448\clbrdrt\brdrs\cellx4032\clbrdrt\brdrs\cellx5616\clbrdrt\brdrs\cellx7200\clbrdrt\brdrs\cellx8784\clbrdrt\brdrs\cellx10368\clbrdrt\brdrs\cellx12096\clbrdrt\brdrs\cellx13824
+\ql \cell\qc (1)\cell\qc (2)\cell\qc (3)\cell\qc (4)\cell\qc (5)\cell\qc (6)\cell\qc (7)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4032\cellx5616\cellx7200\cellx8784\cellx10368\cellx12096\cellx13824
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4032\clbrdrb\brdrs\cellx5616\clbrdrb\brdrs\cellx7200\clbrdrb\brdrs\cellx8784\clbrdrb\brdrs\cellx10368\clbrdrb\brdrs\cellx12096\clbrdrb\brdrs\cellx13824
+\ql VARIABLES\cell\qc S-Big\cell\qc S-Small\cell\qc S-Small\cell\qc D-Big\cell\qc D-Big\cell\qc D-Small\cell\qc D-Small\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4032\cellx5616\cellx7200\cellx8784\cellx10368\cellx12096\cellx13824
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+\ql R(-1)\cell\qc -3.661***\cell\qc -0.858***\cell\qc -0.858***\cell\qc 1.163***\cell\qc 1.163***\cell\qc 0.255***\cell\qc 0.255***\cell\row
+\ql \cell\qc (0.116)\cell\qc (0.0522)\cell\qc (0.0522)\cell\qc (0.0443)\cell\qc (0.0443)\cell\qc (0.0243)\cell\qc (0.0243)\cell\row
+\ql R(-2, -5)\cell\qc 0.243***\cell\qc -0.0653***\cell\qc -0.0653***\cell\qc -0.0404**\cell\qc -0.0404**\cell\qc 0.0289***\cell\qc 0.0289***\cell\row
+\ql \cell\qc (0.0456)\cell\qc (0.0247)\cell\qc (0.0247)\cell\qc (0.0199)\cell\qc (0.0199)\cell\qc (0.00994)\cell\qc (0.00994)\cell\row
+\ql R(-6, -27)\cell\qc 0.0827***\cell\qc 0.00144\cell\qc 0.00144\cell\qc -0.0434***\cell\qc -0.0434***\cell\qc -0.00322\cell\qc -0.00322\cell\row
+\ql \cell\qc (0.0199)\cell\qc (0.0101)\cell\qc (0.0101)\cell\qc (0.00839)\cell\qc (0.00839)\cell\qc (0.00397)\cell\qc (0.00397)\cell\row
+\ql R(-28, -119)\cell\qc -0.0102*\cell\qc 0.00590\cell\qc 0.00590\cell\qc -0.00218\cell\qc -0.00218\cell\qc -0.00209\cell\qc -0.00209\cell\row
+\ql \cell\qc (0.00587)\cell\qc (0.00391)\cell\qc (0.00391)\cell\qc (0.00307)\cell\qc (0.00307)\cell\qc (0.00129)\cell\qc (0.00129)\cell\row
+\ql nt = 2, 2\cell\qc -0.161***\cell\qc -0.0416***\cell\qc -0.0416***\cell\qc 0.0637***\cell\qc 0.0637***\cell\qc 0.00862***\cell\qc 0.00862***\cell\row
+\ql \cell\qc (0.0103)\cell\qc (0.0109)\cell\qc (0.0109)\cell\qc (0.00595)\cell\qc (0.00595)\cell\qc (0.00319)\cell\qc (0.00319)\cell\row
+\ql nt = 3, 3\cell\qc 0.0171\cell\qc 0.0361***\cell\qc 0.0361***\cell\qc 0.0164***\cell\qc 0.0164***\cell\qc 0.00244\cell\qc 0.00244\cell\row
+\ql \cell\qc (0.0110)\cell\qc (0.00909)\cell\qc (0.00909)\cell\qc (0.00510)\cell\qc (0.00510)\cell\qc (0.00281)\cell\qc (0.00281)\cell\row
+\ql l1nt = 2, 2\cell\qc -0.0597***\cell\qc 0.00347\cell\qc 0.00347\cell\qc 0.0405***\cell\qc 0.0405***\cell\qc 0.00671*\cell\qc 0.00671*\cell\row
+\ql \cell\qc (0.0111)\cell\qc (0.0103)\cell\qc (0.0103)\cell\qc (0.00516)\cell\qc (0.00516)\cell\qc (0.00361)\cell\qc (0.00361)\cell\row
+\ql l1nt = 3, 3\cell\qc -0.0172*\cell\qc 0.0323***\cell\qc 0.0323***\cell\qc 0.00990**\cell\qc 0.00990**\cell\qc -0.00354\cell\qc -0.00354\cell\row
+\ql \cell\qc (0.00918)\cell\qc (0.0102)\cell\qc (0.0102)\cell\qc (0.00436)\cell\qc (0.00436)\cell\qc (0.00323)\cell\qc (0.00323)\cell\row
+\ql l2nt = 2, 2\cell\qc -0.0712***\cell\qc 0.00909\cell\qc 0.00909\cell\qc 0.0340***\cell\qc 0.0340***\cell\qc 0.00324\cell\qc 0.00324\cell\row
+\ql \cell\qc (0.0130)\cell\qc (0.00919)\cell\qc (0.00919)\cell\qc (0.00554)\cell\qc (0.00554)\cell\qc (0.00338)\cell\qc (0.00338)\cell\row
+\ql l2nt = 3, 3\cell\qc -0.0425***\cell\qc 0.0373***\cell\qc 0.0373***\cell\qc 0.0199***\cell\qc 0.0199***\cell\qc 0.00178\cell\qc 0.00178\cell\row
+\ql \cell\qc (0.0112)\cell\qc (0.0100)\cell\qc (0.0100)\cell\qc (0.00497)\cell\qc (0.00497)\cell\qc (0.00303)\cell\qc (0.00303)\cell\row
+\ql WeekDay = 2, 1\cell\qc 0.0105\cell\qc 0.0113***\cell\qc 0.0113***\cell\qc -0.0108**\cell\qc -0.0108**\cell\qc -0.00430***\cell\qc -0.00430***\cell\row
+\ql \cell\qc (0.0115)\cell\qc (0.00389)\cell\qc (0.00389)\cell\qc (0.00445)\cell\qc (0.00445)\cell\qc (0.00155)\cell\qc (0.00155)\cell\row
+\ql WeekDay = 3, 2\cell\qc 0.00505\cell\qc 0.00211\cell\qc 0.00211\cell\qc -0.00575\cell\qc -0.00575\cell\qc -0.000248\cell\qc -0.000248\cell\row
+\ql \cell\qc (0.0123)\cell\qc (0.00404)\cell\qc (0.00404)\cell\qc (0.00492)\cell\qc (0.00492)\cell\qc (0.00171)\cell\qc (0.00171)\cell\row
+\ql WeekDay = 4, 3\cell\qc 0.00938\cell\qc 0.00749*\cell\qc 0.00749*\cell\qc -0.00637\cell\qc -0.00637\cell\qc -0.00259\cell\qc -0.00259\cell\row
+\ql \cell\qc (0.0136)\cell\qc (0.00411)\cell\qc (0.00411)\cell\qc (0.00553)\cell\qc (0.00553)\cell\qc (0.00182)\cell\qc (0.00182)\cell\row
+\ql WeekDay = 5, 4\cell\qc 0.00299\cell\qc 0.00862**\cell\qc 0.00862**\cell\qc -0.00241\cell\qc -0.00241\cell\qc -0.00192\cell\qc -0.00192\cell\row
+\ql \cell\qc (0.0118)\cell\qc (0.00391)\cell\qc (0.00391)\cell\qc (0.00452)\cell\qc (0.00452)\cell\qc (0.00166)\cell\qc (0.00166)\cell\row
+\ql mh = 2, True\cell\qc -0.139***\cell\qc -0.0426***\cell\qc -0.0426***\cell\qc 0.0186***\cell\qc 0.0186***\cell\qc -0.00479*\cell\qc -0.00479*\cell\row
+\ql \cell\qc (0.0112)\cell\qc (0.00518)\cell\qc (0.00518)\cell\qc (0.00519)\cell\qc (0.00519)\cell\qc (0.00270)\cell\qc (0.00270)\cell\row
+\ql ml = 2, True\cell\qc 0.0905***\cell\qc 0.0185***\cell\qc 0.0185***\cell\qc -0.0273***\cell\qc -0.0273***\cell\qc -0.00831***\cell\qc -0.00831***\cell\row
+\ql \cell\qc (0.0129)\cell\qc (0.00455)\cell\qc (0.00455)\cell\qc (0.00582)\cell\qc (0.00582)\cell\qc (0.00296)\cell\qc (0.00296)\cell\row
+\ql JYear = 5, 1391\cell\qc -0.0495*\cell\qc 0.00506\cell\qc 0.00506\cell\qc 0.00942\cell\qc 0.00942\cell\qc -0.0126*\cell\qc -0.0126*\cell\row
+\ql \cell\qc (0.0284)\cell\qc (0.0116)\cell\qc (0.0116)\cell\qc (0.0278)\cell\qc (0.0278)\cell\qc (0.00760)\cell\qc (0.00760)\cell\row
+\ql JYear = 6, 1392\cell\qc -0.102***\cell\qc -0.0788***\cell\qc -0.0788***\cell\qc 0.0911***\cell\qc 0.0911***\cell\qc 0.0465***\cell\qc 0.0465***\cell\row
+\ql \cell\qc (0.0271)\cell\qc (0.0127)\cell\qc (0.0127)\cell\qc (0.0226)\cell\qc (0.0226)\cell\qc (0.00703)\cell\qc (0.00703)\cell\row
+\ql JYear = 7, 1393\cell\qc 0.0115\cell\qc 0.00221\cell\qc 0.00221\cell\qc 0.0113\cell\qc 0.0113\cell\qc 0.00832\cell\qc 0.00832\cell\row
+\ql \cell\qc (0.0258)\cell\qc (0.00983)\cell\qc (0.00983)\cell\qc (0.0227)\cell\qc (0.0227)\cell\qc (0.00564)\cell\qc (0.00564)\cell\row
+\ql JYear = 8, 1394\cell\qc -0.0943***\cell\qc -0.0259**\cell\qc -0.0259**\cell\qc 0.0685**\cell\qc 0.0685**\cell\qc 0.0218***\cell\qc 0.0218***\cell\row
+\ql \cell\qc (0.0330)\cell\qc (0.0103)\cell\qc (0.0103)\cell\qc (0.0266)\cell\qc (0.0266)\cell\qc (0.00550)\cell\qc (0.00550)\cell\row
+\ql JYear = 9, 1395\cell\qc -0.0172\cell\qc -0.00109\cell\qc -0.00109\cell\qc 0.0179\cell\qc 0.0179\cell\qc 0.0145***\cell\qc 0.0145***\cell\row
+\ql \cell\qc (0.0256)\cell\qc (0.00984)\cell\qc (0.00984)\cell\qc (0.0220)\cell\qc (0.0220)\cell\qc (0.00555)\cell\qc (0.00555)\cell\row
+\ql JYear = 10, 1396\cell\qc -0.00352\cell\qc -0.0235**\cell\qc -0.0235**\cell\qc -0.00622\cell\qc -0.00622\cell\qc 0.0303***\cell\qc 0.0303***\cell\row
+\ql \cell\qc (0.0275)\cell\qc (0.0103)\cell\qc (0.0103)\cell\qc (0.0236)\cell\qc (0.0236)\cell\qc (0.00532)\cell\qc (0.00532)\cell\row
+\ql JYear = 11, 1397\cell\qc -0.0892***\cell\qc -0.0745***\cell\qc -0.0745***\cell\qc 0.0660**\cell\qc 0.0660**\cell\qc 0.0383***\cell\qc 0.0383***\cell\row
+\ql \cell\qc (0.0319)\cell\qc (0.0126)\cell\qc (0.0126)\cell\qc (0.0265)\cell\qc (0.0265)\cell\qc (0.00566)\cell\qc (0.00566)\cell\row
+\ql JYear = 12, 1398\cell\qc -0.180***\cell\qc -0.100***\cell\qc -0.100***\cell\qc 0.149***\cell\qc 0.149***\cell\qc 0.0470***\cell\qc 0.0470***\cell\row
+\ql \cell\qc (0.0262)\cell\qc (0.0144)\cell\qc (0.0144)\cell\qc (0.0209)\cell\qc (0.0209)\cell\qc (0.00557)\cell\qc (0.00557)\cell\row
+\ql JYear = 13, 1399\cell\qc -0.136***\cell\qc -0.0470***\cell\qc -0.0470***\cell\qc 0.138***\cell\qc 0.138***\cell\qc 0.0358***\cell\qc 0.0358***\cell\row
+\ql \cell\qc (0.0339)\cell\qc (0.0130)\cell\qc (0.0130)\cell\qc (0.0230)\cell\qc (0.0230)\cell\qc (0.00794)\cell\qc (0.00794)\cell\row
+\ql JYear = 14, 1400\cell\qc 0.00714\cell\qc -0.0536***\cell\qc -0.0536***\cell\qc 0.0742***\cell\qc 0.0742***\cell\qc 0.0303**\cell\qc 0.0303**\cell\row
+\ql \cell\qc (0.0285)\cell\qc (0.0191)\cell\qc (0.0191)\cell\qc (0.0220)\cell\qc (0.0220)\cell\qc (0.0137)\cell\qc (0.0137)\cell\row
+\ql JYear = 15, 1401\cell\qc -0.00672\cell\qc -0.0710\cell\qc -0.0710\cell\qc 0.0826***\cell\qc 0.0826***\cell\qc 0.0654**\cell\qc 0.0654**\cell\row
+\ql \cell\qc (0.0347)\cell\qc (0.0580)\cell\qc (0.0580)\cell\qc (0.0222)\cell\qc (0.0222)\cell\qc (0.0262)\cell\qc (0.0262)\cell\row
+\ql Constant\cell\qc 0.246***\cell\qc 0.0713***\cell\qc 0.0713***\cell\qc -0.167***\cell\qc -0.167***\cell\qc -0.0366***\cell\qc -0.0366***\cell\row
+\ql \cell\qc (0.0235)\cell\qc (0.00868)\cell\qc (0.00868)\cell\qc (0.0200)\cell\qc (0.0200)\cell\qc (0.00515)\cell\qc (0.00515)\cell\row
+\ql \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\qc \cell\row
+\ql Observations\cell\qc 321,883\cell\qc 228,712\cell\qc 228,712\cell\qc 321,883\cell\qc 321,883\cell\qc 228,712\cell\qc 228,712\cell\row
+\ql R-squared\cell\qc 0.044\cell\qc 0.008\cell\qc 0.008\cell\qc 0.043\cell\qc 0.043\cell\qc 0.009\cell\qc 0.009\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4032\clbrdrb\brdrs\cellx5616\clbrdrb\brdrs\cellx7200\clbrdrb\brdrs\cellx8784\clbrdrb\brdrs\cellx10368\clbrdrb\brdrs\cellx12096\clbrdrb\brdrs\cellx13824
+\ql Number of groups\cell\qc 645\cell\qc 405\cell\qc 405\cell\qc 645\cell\qc 645\cell\qc 405\cell\qc 405\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}
