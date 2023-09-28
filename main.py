@@ -52,7 +52,8 @@ class FPN :
 
     t14 = dyr.td / 't14.prq'
 
-    no_nws = dyr.sd / 'no_news.csv'
+    no_nws3 = dyr.sd / 'no_news3.csv'
+    no_nws5 = dyr.sd / 'no_news5.csv'
 
 class Params :
     days_2_rm_after_ipo = 40

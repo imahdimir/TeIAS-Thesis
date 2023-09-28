@@ -20,16 +20,12 @@ from modules._13_make_main_dataset import get_measures_data
 from modules._13_make_main_dataset import read_news_data_keep_revelant_cols
 from modules._13_make_main_dataset import read_refrence_points_data
 from modules._13_make_main_dataset import read_weekday_data
+from modules._13_make_main_dataset import gen_jyear
 
 cl = tse_ns.DAllCodalLetters()
 cd = tse_ns.DIndInsCols()
 
-class Param :
-    days_2_rm = 5
-
-pa = Param()
-
-def mark_news_neighborhood_by_firm(df) :
+def mark_news_neighborhood_by_firm(df , days_to_remove) :
     has_news = 'Has_News'
 
     has_news_types = [nws_type.good , nws_type.neutral , nws_type.bad ,
@@ -46,8 +42,8 @@ def mark_news_neighborhood_by_firm(df) :
 
     df = df.sort_values(by = [c.d] , ascending = False)
 
-    df[nhbr1] = df.groupby(c.ftic)[has_news].ffill(pa.days_2_rm)
-    df[nhbr2] = df.groupby(c.ftic)[has_news].bfill(pa.days_2_rm)
+    df[nhbr1] = df.groupby(c.ftic)[has_news].ffill(days_to_remove)
+    df[nhbr2] = df.groupby(c.ftic)[has_news].bfill(days_to_remove)
 
     nhbr = 'News_Neighborhood'
 
@@ -123,19 +119,28 @@ def main() :
     df = pd.read_parquet(fpn.t14)
 
     ##
-    df = mark_news_neighborhood_by_firm(df)
+    df3 = mark_news_neighborhood_by_firm(df , 3)
+    df5 = mark_news_neighborhood_by_firm(df , 5)
 
     ##
-    df = rm_non_eligible_rows(df)
+    df3 = rm_non_eligible_rows(df3)
+    df5 = rm_non_eligible_rows(df5)
 
     ##
-    df = rm_excess_cols(df)
+    df3 = rm_excess_cols(df3)
+    df5 = rm_excess_cols(df5)
 
     ##
-    df = change_adjusted_returns_col_names(df)
+    df3 = change_adjusted_returns_col_names(df3)
+    df5 = change_adjusted_returns_col_names(df5)
 
     ##
-    df.to_csv(fpn.no_nws , index = False)
+    df3 = gen_jyear(df3)
+    df5 = gen_jyear(df5)
+
+    ##
+    df3.to_csv(fpn.no_nws3 , index = False)
+    df5.to_csv(fpn.no_nws5 , index = False)
 
     ##
 

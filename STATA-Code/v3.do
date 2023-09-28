@@ -254,4 +254,4 @@
 	outreg2 using $vt2, append label ctitle("D-Small") tex(pr)
 	outreg2 using $vd2, append label ctitle("D-Small") tex(pr)
 	
-	
+

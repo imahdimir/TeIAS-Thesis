@@ -1,0 +1,43 @@
+\documentclass[border=0.2cm]{standalone}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{lcccc}
+                           & \multicolumn{2}{l}{Institutions}               & \multicolumn{2}{l}{Individuals}                                                                                                                  \\
+    \cmidrule(l){2-3} \cmidrule(l){4-5}
+    \vspace{4pt}           & Large                                          & Small                                          & Large                                          & Small                                          \\
+    \toprule
+    \vspace{4pt}           & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         \\
+    R(-1)                  & -3.661***                                      & -0.858***                                      & 1.163***                                       & 0.255***                                       \\
+    \vspace{4pt}           & \begin{footnotesize}(-31.62)\end{footnotesize} & \begin{footnotesize}(-16.44)\end{footnotesize} & \begin{footnotesize}(26.27)\end{footnotesize}  & \begin{footnotesize}(10.47)\end{footnotesize}  \\
+    R(-2, -5)              & 0.243***                                       & -0.0653***                                     & -0.0404**                                      & 0.0289***                                      \\
+    \vspace{4pt}           & \begin{footnotesize}(5.324)\end{footnotesize}  & \begin{footnotesize}(-2.642)\end{footnotesize} & \begin{footnotesize}(-2.029)\end{footnotesize} & \begin{footnotesize}(2.909)\end{footnotesize}  \\
+    R(-6, -27)             & 0.0827***                                      & 0.00144                                        & -0.0434***                                     & -0.00322                                       \\
+    \vspace{4pt}           & \begin{footnotesize}(4.157)\end{footnotesize}  & \begin{footnotesize}(0.142)\end{footnotesize}  & \begin{footnotesize}(-5.171)\end{footnotesize} & \begin{footnotesize}(-0.810)\end{footnotesize} \\
+    R(-28, -119)           & -0.0102*                                       & 0.00590                                        & -0.00218                                       & -0.00209                                       \\
+    \vspace{12pt}          & \begin{footnotesize}(-1.736)\end{footnotesize} & \begin{footnotesize}(1.508)\end{footnotesize}  & \begin{footnotesize}(-0.711)\end{footnotesize} & \begin{footnotesize}(-1.616)\end{footnotesize} \\
+    News FE                & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    Lag 1 News FE          & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    Lag 2 News FE          & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    WeekDay FE             & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    Month Highest Price FE & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    Month Lowest Price FE  & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    Jalali Year FE         & Yes                                            & Yes                                            & Yes                                            & Yes                                            \\
+    \vspace{4pt}           &                                                &                                                &                                                &                                                \\
+    \vspace{4pt}           & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         \\
+    Observations           & 321,883                                        & 228,712                                        & 321,883                                        & 228,712                                        \\
+    $R^2$                  & 4.4\%                                          & 0.8\%                                          & 4.3\%                                          & 0.9\%                                          \\
+    Number of groups       & 645                                            & 405                                            & 645                                            & 405                                            \\
+    \vspace{2pt}           & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         & \begin{footnotesize}\end{footnotesize}         \\
+    
+    \bottomrule
+    \multicolumn{5}{c}{\begin{footnotesize} t-statistics in parentheses\end{footnotesize}}                                                                                                                                     \\
+    \multicolumn{5}{c}{\begin{footnotesize} *** p$<$0.01, ** p$<$0.05, * p$<$0.1\end{footnotesize}}                                                                                                                            \\
+\end{tabular}
+\end{document}
