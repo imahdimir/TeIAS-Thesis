@@ -7,6 +7,8 @@ from pathlib import Path
 import pandas as pd
 from mirutil.df import save_df_as_prq
 from namespace_mahdimir import tse as tse_ns
+from scipy import stats
+import numpy as np
 
 from main import c
 from main import cn
@@ -137,6 +139,26 @@ def main() :
     ##
     df3 = gen_jyear(df3)
     df5 = gen_jyear(df5)
+
+    ##
+    df3 = df3.dropna(subset = ['r1' , 'r2' , 'r6' , 'r28'] , how = 'any')
+    df5 = df5.dropna(subset = ['r1' , 'r2' , 'r6' , 'r28'] , how = 'any')
+
+    ##
+    for coln in ['r1' , 'r2' , 'r6' , 'r28'] :
+        df3[coln] = df3[coln].astype(float)
+        df5[coln] = df5[coln].astype(float)
+
+        z_3 = stats.zscore(df3[coln])
+        abs_z3 = np.abs(z_3)
+        z_5 = stats.zscore(df5[coln])
+        abs_z5 = np.abs(z_5)
+
+        msk3 = abs_z3 < 2.5
+        df3 = df3[msk3]
+
+        msk5 = abs_z5 < 2.5
+        df5 = df5[msk5]
 
     ##
     df3.to_csv(fpn.no_nws3 , index = False)

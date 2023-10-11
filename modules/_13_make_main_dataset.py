@@ -9,6 +9,8 @@ import pandas as pd
 import requests
 from mirutil.df import save_df_as_prq
 from namespace_mahdimir import tse as tse_ns
+from scipy import stats
+import numpy as np
 
 from main import c
 from main import cn
@@ -152,11 +154,18 @@ def change_adjusted_returns_col_names(df) :
 
     return df
 
+def count_obs(df , len_list) :
+    return len_list + [len(df)]
+
 def main() :
     pass
 
     ##
+    l1 = []
+
+    ##
     df = get_measures_data()
+    l1 = count_obs(df , l1)
 
     ##
     df_r = get_market_adjusted_returns_keep_relevant_cols()
@@ -215,6 +224,17 @@ def main() :
 
     ##
     df = change_adjusted_returns_col_names(df)
+
+    ##
+    df = df.dropna(subset = ['r1' , 'r2' , 'r6' , 'r28'] , how = 'any')
+
+    ##
+    for coln in ['r1' , 'r2' , 'r6' , 'r28'] :
+        df[coln] = df[coln].astype(float)
+        z_scores = stats.zscore(df[coln])
+        abs_z = np.abs(z_scores)
+        msk = abs_z < 3
+        df = df[msk]
 
     ##
     df.to_csv(fpn.main , index = False)

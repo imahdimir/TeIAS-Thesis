@@ -52,7 +52,42 @@ def main() :
     df1 = df.describe().T
 
     ##
-    df1.to_latex('variation_analysis.tex')
+    df1['count'] = df1['count'].astype(int)
+    df1['count'] = df1['count'].astype(str)
+
+    ##
+    df1 = df1.round(2)
+
+    ##
+    df1 = df1.astype(str)
+
+    ##
+    df1 = df1.applymap(lambda x : '\(\mathrm{' + x + '}\)')
+
+    ##
+    df1.to_latex('t4.tex')
+
+    ##
+    df1 = df.describe().T
+
+    ##
+    df1['count'] = df1['count'].astype(int)
+    df1['count'] = df1['count'].astype(str)
+
+    ##
+    df1 = df1 * 100
+
+    ##
+    df1 = df1.round(2)
+
+    ##
+    df1 = df1.astype(str)
+
+    ##
+    df1 = df1.applymap(lambda x : '\(\mathrm{' + x + '\%}\)')
+
+    ##
+    df1.to_latex('t4_pct.tex')
 
     ##
     df = pd.read_csv(fpn.main)
@@ -115,7 +150,45 @@ def main() :
     dfo = dfo.merge(df3 , on = [c.jyr] , how = 'outer')
 
     ##
-    dfo.to_latex('sum_stat.tex')
+    da = dfo.loc[1387 :1401]
+
+    ##
+    da = da.iloc[: , :10]
+
+    ##
+    da = da.drop(columns = [c.jd , c.ftic])
+
+    ##
+    da = da.round(2)
+
+    ##
+    da = da.astype(str)
+
+    ##
+    da = da.applymap(lambda x : '\(\mathrm{' + x + '}\)')
+
+    ##
+    da.to_latex('t2.tex')
+
+    ##
+    da = dfo.copy()
+
+    ##
+    da = da.iloc[: , 10 :]
+
+    ##
+    da = da.round(2)
+
+    ##
+    da = da.astype(str)
+
+    ##
+    da = da.applymap(lambda x : '\(\mathrm{' + x + '}\)')
+
+    ##
+    da.to_latex('t3.tex')
+
+    ##
 
     ##
 
