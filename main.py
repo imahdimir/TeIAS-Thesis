@@ -146,6 +146,11 @@ class ColName :
     # 14
     nhbr = 'News_Neighborhood'
 
+    r1 = 'r1'
+    r2 = 'r2'
+    r6 = 'r6'
+    r28 = 'r28'
+
 class NewsType :
     good = 'Good'
     bad = 'Bad'

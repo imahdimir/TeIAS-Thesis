@@ -8,8 +8,8 @@ from mirutil.df import save_df_as_prq
 
 from main import *
 
-cl = tse_ns.DAllCodalLetters()
 cd = tse_ns.DIndInsCols()
+cl = tse_ns.DAllCodalLetters()
 
 def get_measures_data() :
     df = pd.read_parquet(fpn.t8)
@@ -17,19 +17,6 @@ def get_measures_data() :
 
 def get_mkt_adj_rtns() :
     return get_data_wo_double_clone(gdu.thesis_mkt_adj_ret)
-
-def keep_relevant_cols(df) :
-    c2k = {
-            c.ftic  : None ,
-            c.d     : None ,
-            c.jd    : None ,
-            cn.sti0 : None ,
-            cn.dti0 : None ,
-            cn.sci0 : None ,
-            cn.dci0 : None ,
-            }
-
-    return df[c2k.keys()]
 
 def read_news_data_keep_revelant_cols() :
     df = pd.read_parquet(fpn.t7)
@@ -133,16 +120,12 @@ def main() :
     pass
 
     ##
-
     df = get_measures_data()
-    df = keep_relevant_cols(df)
 
     ##
-
     dfr = get_mkt_adj_rtns()
 
     ##
-
     # add market adjusted returns data to baseline data
     df = df.merge(dfr , on = [c.ftic , c.d , c.jd] , how = 'left')
 

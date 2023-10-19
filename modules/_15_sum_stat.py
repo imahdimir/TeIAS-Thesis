@@ -2,19 +2,164 @@
 
     """
 
-from pathlib import Path
-
 import pandas as pd
 from namespace_mahdimir import tse as tse_ns
 
-from main import c
-from main import cn
-from main import fpn
+from main import *
 
-cl = tse_ns.DAllCodalLetters()
+sum_stat = Path('sum_stat/')
+
 cd = tse_ns.DIndInsCols()
 
-def keep_related_cols_for_variation_analysis(df) :
+def add_second_zero(df) :
+    for cl in df.columns :
+        msk = df[cl].str.fullmatch(r'\d+\.\d')
+        df.loc[msk , cl] = df.loc[msk , cl] + '0'
+    return df
+
+def make_decimal_point_slash(df) :
+    df = df.applymap(lambda x : x.replace('.' , '/'))
+    return df
+
+##
+def days_fa() :
+    pass
+
+    ##
+    # read the main data
+    df = pd.read_csv(fpn.main)
+
+    ##
+    # get years and trading days
+    df1 = df[[c.jd , c.jyr]]
+    df1 = df1.drop_duplicates()
+    df1 = df1.groupby(c.jyr).count()
+    df1 = df1.reset_index()
+
+    ##
+    # get number of firms each year
+    df2 = df[[c.ftic , c.jyr]].drop_duplicates()
+    df2 = df2.groupby(c.jyr).count()
+    df2 = df2.reset_index()
+
+    ##
+    # merge the two
+    dfo = df1.merge(df2 , on = [c.jyr])
+
+    ##
+    dfo = dfo.astype(str)
+
+    ##
+    dfo.to_csv(sum_stat / 'days.csv' , index = False)
+
+def val_fa() :
+    pass
+
+    ##
+    df = pd.read_csv(fpn.main)
+
+    ##
+    df1 = df[[cd.bsv , cd.ssv , cd.bdv , cd.sdv , c.jyr]]
+    df1 = df1.groupby(c.jyr).sum() / 10 ** 9
+
+    ##
+    df2 = df[[cd.bsva , cd.ssva , cd.bdva , cd.sdva , c.jyr]]
+    df2 = df2.groupby(c.jyr).sum() / 10 ** 13
+
+    ##
+    dfo = df1.join(df2)
+
+    ##
+    dfo = dfo.round(2)
+    dfo = dfo.astype(str)
+
+    ##
+    dfo = add_second_zero(dfo)
+
+    ##
+    dfo = make_decimal_point_slash(dfo)
+
+    ##
+    dfo = dfo.reset_index()
+
+    ##
+    dfo = dfo.astype(str)
+
+    ##
+    dfo.to_csv(sum_stat / 'val.csv' , index = False)
+
+def count_fa() :
+    pass
+
+    ##
+    df = pd.read_csv(fpn.main)
+
+    ##
+    dfc = df[[cd.bsc , cd.ssc , cd.bdc , cd.sdc , c.jyr]]
+
+    ##
+    df1 = dfc.groupby(c.jyr).mean()
+    df1 = df1.rename(columns = lambda x : x + '_mean')
+
+    ##
+    df2 = dfc.mean().to_frame().T.drop(columns = [c.jyr])
+    df2 = df2.rename(columns = lambda x : x + '_mean')
+    df2.index = ['all']
+
+    ##
+    df3 = pd.concat([df1 , df2] , axis = 0)
+    df3 = df3.reset_index()
+    df3 = df3.rename(columns = {
+            'index' : c.jyr
+            })
+    df3 = df3.set_index(c.jyr)
+
+    ##
+    df1 = dfc.groupby(c.jyr).std()
+    df1 = df1.rename(columns = lambda x : x + '_std')
+
+    ##
+    df2 = dfc.std().to_frame().T.drop(columns = [c.jyr])
+    df2 = df2.rename(columns = lambda x : x + '_std')
+    df2.index = ['all']
+
+    ##
+    df4 = pd.concat([df1 , df2] , axis = 0)
+    df4 = df4.reset_index()
+    df4 = df4.rename(columns = {
+            'index' : c.jyr
+            })
+    df4 = df4.set_index(c.jyr)
+
+    ##
+    dfo = df3.join(df4)
+
+    ##
+    dfo = dfo.round(2)
+    dfo = dfo.astype(str)
+
+    ##
+    dfo = add_second_zero(dfo)
+
+    ##
+    dfo = make_decimal_point_slash(dfo)
+
+    ##
+    dfo = dfo.reset_index()
+
+    ##
+    dfo = dfo.astype(str)
+
+    ##
+    dfo.to_csv(sum_stat / 'count.csv' , index = False)
+
+def var_fa() :
+    pass
+
+    ##
+    df = pd.read_csv(fpn.main)
+
+    ##
     cols = {
             cn.sti0 : None ,
             cn.dti0 : None ,
@@ -26,207 +171,46 @@ def keep_related_cols_for_variation_analysis(df) :
             cn.dci0 : None ,
             }
 
-    return df[cols.keys()]
-
-def main() :
-    pass
+    df = df[cols.keys()]
 
     ##
-    df = pd.read_csv(fpn.main)
+    dfo = df.describe()
 
     ##
-    df = keep_related_cols_for_variation_analysis(df)
+    for cl in [cn.r1 , cn.r2 , cn.r6 , cn.r28] :
+        dfo[cl] = dfo[cl] * 100
 
     ##
-    df1 = df.describe().T
+    dfo = dfo.T
 
     ##
-    df1['count'] = df1['count'].astype(int)
-    df1['count'] = df1['count'].astype(str)
-
-    ##
-    df1 = df1.round(2)
-
-    ##
-    df1 = df1.astype(str)
-
-    ##
-    df1 = df1.applymap(lambda x : '\(\mathrm{' + x + '}\)')
-
-    ##
-    df1.to_latex('t4.tex')
-
-    ##
-    df1 = df.describe().T
-
-    ##
-    df1['count'] = df1['count'].astype(int)
-    df1['count'] = df1['count'].astype(str)
-
-    ##
-    df1 = df1 * 100
-
-    ##
-    df1 = df1.round(2)
-
-    ##
-    df1 = df1.astype(str)
-
-    ##
-    df1 = df1.applymap(lambda x : '\(\mathrm{' + x + '\%}\)')
-
-    ##
-    df1.to_latex('t4_pct.tex')
-
-    ##
-    df = pd.read_csv(fpn.main)
-
-    ##
-    df1 = df[[c.jd , c.jyr]]
-
-    ##
-    df1 = df1.drop_duplicates()
-    dfo = df1.groupby(c.jyr).count()
-
-    ##
-    df1 = df[[c.ftic , c.jyr]].drop_duplicates()
-    df2 = df1.groupby(c.jyr).count()
-
-    ##
-    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'left')
-
-    ##
-    df1 = df[[cd.bsv , cd.ssv , cd.bdv , cd.sdv , c.jyr]]
-    df2 = df1.groupby(c.jyr).sum() / 10 ** 9
-
-    ##
-    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'left')
-
-    ##
-    df1 = df[[cd.bsva , cd.ssva , cd.bdva , cd.sdva , c.jyr]]
-    df2 = df1.groupby(c.jyr).sum() / 10 ** 13
-
-    ##
-    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'left')
-
-    ##
-    df1 = df[[cd.bsc , cd.ssc , cd.bdc , cd.sdc , c.jyr]]
-    df2 = df1.groupby(c.jyr).mean()
-    df2 = df2.rename(columns = lambda x : x + '_mean')
-    df3 = df1.mean().to_frame().T.drop(columns = [c.jyr])
-    df3 = df3.rename(columns = lambda x : x + '_mean')
-    df2 = pd.concat([df2 , df3] , axis = 0)
-    df2 = df2.reset_index()
-    df2 = df2.rename(columns = {
-            'index' : c.jyr
-            })
-    df2 = df2.set_index(c.jyr)
-
-    ##
-    df3 = df1.groupby(c.jyr).std()
-    df3 = df3.rename(columns = lambda x : x + '_std')
-    df4 = df1.std().to_frame().T.drop(columns = [c.jyr])
-    df4 = df4.rename(columns = lambda x : x + '_std')
-    df3 = pd.concat([df3 , df4] , axis = 0)
-    df3 = df3.reset_index()
-    df3 = df3.rename(columns = {
-            'index' : c.jyr
-            })
-    df3 = df3.set_index(c.jyr)
-
-    ##
-    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'outer')
-    dfo = dfo.merge(df3 , on = [c.jyr] , how = 'outer')
-
-    ##
-    da = dfo.loc[1387 :1401]
-
-    ##
-    da = da.iloc[: , :10]
-
-    ##
-    da = da.drop(columns = [c.jd , c.ftic])
-
-    ##
-    da = da.round(2)
-
-    ##
-    da = da.astype(str)
-
-    ##
-    da = da.applymap(lambda x : '\(\mathrm{' + x + '}\)')
-
-    ##
-    da.to_latex('t2.tex')
-
-    ##
-    da = dfo.copy()
-
-    ##
-    da = da.iloc[: , 10 :]
-
-    ##
-    da = da.round(2)
-
-    ##
-    da = da.astype(str)
-
-    ##
-    da = da.applymap(lambda x : '\(\mathrm{' + x + '}\)')
-
-    ##
-    da.to_latex('t3.tex')
-
-    ##
-
-    ##
-
-##
-
-
-if __name__ == "__main__" :
-    main()
-    print(f'{Path(__file__).name} Done!')
-
-def check_extreme_values() :
-    pass
-
-    ##
-
-    df = pd.read_csv(fpn.main)
-
-    ##
-    df = df.sort_values(['r28'])
-
-    ##
-
-def vol_val_table_word() :
-    pass
-
-    ##
-    df = pd.read_csv(fpn.main)
-
-    ##
-    df1 = df[[cd.bsv , cd.ssv , cd.bdv , cd.sdv , c.jyr]]
-    dfo = df1.groupby(c.jyr).sum() / 10 ** 9
-
-    ##
-    df1 = df[[cd.bsva , cd.ssva , cd.bdva , cd.sdva , c.jyr]]
-    df2 = df1.groupby(c.jyr).sum() / 10 ** 13
-
-    ##
-    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'left')
+    dfo['count'] = dfo['count'].astype(int).astype(str)
 
     ##
     dfo = dfo.round(2)
-
-    ##
     dfo = dfo.astype(str)
 
     ##
-    dfo = dfo.applymap(lambda x : x.replace('.' , '/'))
+    dfo = add_second_zero(dfo)
 
     ##
-    dfo.to_csv('t5.csv')
+    dfo = make_decimal_point_slash(dfo)
 
     ##
+    locs = [cn.r1 , cn.r2 , cn.r6 , cn.r28]
+    cols = ['mean' , 'std' , 'min' , '25%' , '50%' , '75%' , 'max']
+
+    for col in cols :
+        dfo.loc[locs , col] = dfo.loc[locs , col] + '%'
+
+    ##
+    dfo.loc[locs , 'count'] = dfo.loc[locs , 'count'].astype(int) / 100
+    dfo.loc[locs , 'count'] = dfo.loc[locs , 'count'].astype(int).astype(str)
+
+    ##
+    dfo = dfo.reset_index()
+
+    ##
+    dfo.to_csv(sum_stat / 'var.csv' , index = False)
+
+##
