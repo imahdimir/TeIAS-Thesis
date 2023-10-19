@@ -3,7 +3,6 @@
     """
 
 import pandas as pd
-from namespace_mahdimir import tse as tse_ns
 
 from main import *
 

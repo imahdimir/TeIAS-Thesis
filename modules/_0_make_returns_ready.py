@@ -9,7 +9,6 @@ from githubdata import GitHubDataRepo
 from scipy import stats
 
 from main import c
-from main import cn
 from main import fpn
 from main import gdu
 from main import pa

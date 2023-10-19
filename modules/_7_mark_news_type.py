@@ -10,8 +10,9 @@ from persiantools.jdatetime import JalaliDate
 
 from main import c
 from main import cn
+from main import dyr
 from main import fpn
-from main import nws_type , dyr
+from main import nws_type
 
 # namespace  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 cd = tse_ns.DAllCodalLetters()

@@ -4,8 +4,8 @@
 
 from pathlib import Path
 
-from namespace_mahdimir import tse_github_data_url as tgdu
 from namespace_mahdimir import tse as tse_ns
+from namespace_mahdimir import tse_github_data_url as tgdu
 
 class GDU :
     g = tgdu.GitHubDataUrl()

@@ -5,7 +5,7 @@
 import pandas as pd
 
 from main import *
-from modules._13_make_main_dataset import gen_jyear
+from modules._13_make_main_data import gen_jyear
 
 def mark_news_neighborhood_by_firm(df , days_to_remove) :
     has_news = 'Has_News'
