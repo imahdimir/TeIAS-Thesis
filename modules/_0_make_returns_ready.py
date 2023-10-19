@@ -2,8 +2,6 @@
 
     """
 
-from pathlib import Path
-
 import numpy as np
 from githubdata import GitHubDataRepo
 from scipy import stats
@@ -59,8 +57,5 @@ def main() :
     df.to_parquet(fpn.t0 , index = False)
 
 ##
-
-
 if __name__ == "__main__" :
     main()
-    print(f'{Path(__file__).name} Done!')
