@@ -7,16 +7,12 @@ from pathlib import Path
 from namespace_mahdimir import tse_github_data_url as tgdu
 from namespace_mahdimir import tse as tse_ns
 
-# namespace   %%%%%%%%%%%%%%%%%%%%%%%%%%%
-c = tse_ns.Col()
-
-# class       %%%%%%%%%%%%%%%%%%%%%%%%%%%
 class GDU :
     g = tgdu.GitHubDataUrl()
 
     slf = tgdu.m + 'TeIAS-Thesis'
 
-    src_adj_rets = g.adj_ret
+    adj_ret = g.adj_ret
     src_rf = g.rf
     mkt_indx_s = g.tedpix
     src_codal_ltrs = g.codal_ltrs
@@ -25,6 +21,7 @@ class GDU :
     tse_wds_s = g.tse_work_days
     adj_price_s = g.adj_price
     mktcap_s = g.mktcap
+    thesis_mkt_adj_ret = 'imahdimir/thesis-d-mkt-adj-rets'
 
 class Dirs :
     td = Path('temp_data/')
@@ -47,6 +44,7 @@ class FPN :
     t11 = dyr.td / 't11.prq'
     t12 = dyr.td / 't12.prq'
     t13 = dyr.td / 't13.prq'
+    t13_0 = dyr.td / 't13_0_for14.prq'
 
     main = dyr.sd / 'main.csv'
 
@@ -63,6 +61,8 @@ class Params :
     min_abs_abnormnal_ret = .0025  # min abonormal return which considered as a significant one
 
 class ColName :
+    c = tse_ns.Col()
+
     ret = c.ar1dlf + '-modified'
     w_strt_jd = "Window-Start-JDate"
     w_end_jd = "Window-End-JDate"
@@ -154,34 +154,10 @@ class NewsType :
     no_news = 'No-News'
 
 # class instances   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+c = tse_ns.Col()
 dyr = Dirs()
 fpn = FPN()
 pa = Params()
 gdu = GDU()
 cn = ColName()
 nws_type = NewsType()
-
-def main() :
-    pass
-
-    ##
-
-    ##
-
-##
-
-
-if __name__ == "__main__" :
-    main()
-    print(f'{Path(__file__).name} Done!')
-
-##
-
-
-# noinspection PyUnreachableCode
-if False :
-    pass
-
-    ##
-
-    ##

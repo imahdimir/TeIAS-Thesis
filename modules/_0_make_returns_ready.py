@@ -14,10 +14,6 @@ from main import fpn
 from main import gdu
 from main import pa
 
-def keep_relevant_cols(df) :
-    # remove not wanted cols
-    return df.drop(columns = [c.arlo , c.ar1d])
-
 def remove_n_days_after_ipo(df) :
     """remove some days after ipo which specified by a parameter"""
 
@@ -38,34 +34,24 @@ def main() :
     pass
 
     ##
+
     # dl filled returns data
-    gdr = GitHubDataRepo(gdu.src_adj_rets)
+    gdr = GitHubDataRepo(gdu.adj_ret)
 
     ##
     df = gdr.read_data()
 
     ##
-    df = keep_relevant_cols(df)
-
-    ##
     df = remove_n_days_after_ipo(df)
 
     ##
-    # copy the returns' column for making not valid values to nan
-    df[cn.ret] = df[c.ar1dlf].copy()
-
-    ##
-    # remove inf vals
-    df[cn.ret] = df[cn.ret].replace([np.inf , -np.inf] , np.nan)
-
-    ##
     # find Z score for outlier filtering
-    df['z'] = np.abs(stats.zscore(df[cn.ret].dropna().astype(float)))
+    df['z'] = np.abs(stats.zscore(df[c.ar1dlf]))
 
     ##
     # remove outliers
-    msk = df['z'].gt(2)
-    df.loc[msk , cn.ret] = np.nan
+    msk = df['z'].le(3)
+    df = df[msk]
 
     ##
     df = df.drop(columns = ['z'])

@@ -18,8 +18,8 @@ class Params :
     window_shift_size = {
             cn.rm1      : (1 , 1) ,
             cn.rm2m5    : (5 , 2) ,
-            cn.rm6m27   : (22 , 6) ,
-            cn.rm28m119 : (92 , 28) ,
+            cn.rm6m27   : (27 , 6) ,
+            cn.rm28m119 : (119 , 28) ,
             }
 
 def keep_relevant_cols(df) :
@@ -44,6 +44,7 @@ def cal_cum_ret(df ,
     calculate cumulative return, with window size and shift size
 
     """
+
     dtc = date_col
     gpc = groupby_col
     rc = ret_col
@@ -163,8 +164,5 @@ def main() :
     save_df_as_prq(df , fpn.t9)
 
 ##
-
-
 if __name__ == "__main__" :
     main()
-    print(f'{Path(__file__).name} Done!')

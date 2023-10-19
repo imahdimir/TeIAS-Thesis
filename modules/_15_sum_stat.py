@@ -5,22 +5,11 @@
 from pathlib import Path
 
 import pandas as pd
-from mirutil.df import save_df_as_prq
 from namespace_mahdimir import tse as tse_ns
 
 from main import c
 from main import cn
 from main import fpn
-from main import nws_type
-from modules._13_make_main_dataset import add_news_data_to_baseline_data
-from modules._13_make_main_dataset import change_adjusted_returns_col_names
-from modules._13_make_main_dataset import \
-    get_market_adjusted_returns_keep_relevant_cols
-from modules._13_make_main_dataset import get_measures_data
-from modules._13_make_main_dataset import read_news_data_keep_revelant_cols
-from modules._13_make_main_dataset import read_refrence_points_data
-from modules._13_make_main_dataset import read_weekday_data
-from modules._13_make_main_dataset import gen_jyear
 
 cl = tse_ns.DAllCodalLetters()
 cd = tse_ns.DIndInsCols()
@@ -198,3 +187,46 @@ def main() :
 if __name__ == "__main__" :
     main()
     print(f'{Path(__file__).name} Done!')
+
+def check_extreme_values() :
+    pass
+
+    ##
+
+    df = pd.read_csv(fpn.main)
+
+    ##
+    df = df.sort_values(['r28'])
+
+    ##
+
+def vol_val_table_word() :
+    pass
+
+    ##
+    df = pd.read_csv(fpn.main)
+
+    ##
+    df1 = df[[cd.bsv , cd.ssv , cd.bdv , cd.sdv , c.jyr]]
+    dfo = df1.groupby(c.jyr).sum() / 10 ** 9
+
+    ##
+    df1 = df[[cd.bsva , cd.ssva , cd.bdva , cd.sdva , c.jyr]]
+    df2 = df1.groupby(c.jyr).sum() / 10 ** 13
+
+    ##
+    dfo = dfo.merge(df2 , on = [c.jyr] , how = 'left')
+
+    ##
+    dfo = dfo.round(2)
+
+    ##
+    dfo = dfo.astype(str)
+
+    ##
+    dfo = dfo.applymap(lambda x : x.replace('.' , '/'))
+
+    ##
+    dfo.to_csv('t5.csv')
+
+    ##
