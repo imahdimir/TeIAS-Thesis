@@ -7,6 +7,7 @@ import pandas as pd
 from main import *
 
 sum_stat = Path('sum_stat/')
+tables = Path('tables/')
 
 cd = tse_ns.DIndInsCols()
 
@@ -19,6 +20,13 @@ def add_second_zero(df) :
 def make_decimal_point_slash(df) :
     df = df.applymap(lambda x : x.replace('.' , '/'))
     return df
+
+def tables_fa(fp , outfn) :
+    df = pd.read_csv(fp , sep = None)
+    df = df.fillna('')
+    df = make_decimal_point_slash(df)
+    df = df[reversed(df.columns)]
+    df.to_html(tables / f'{outfn}.html' , index = False)
 
 ##
 def days_fa() :
@@ -150,7 +158,22 @@ def count_fa() :
     dfo = dfo.astype(str)
 
     ##
-    dfo.to_csv(sum_stat / 'count.csv' , index = False)
+    cols_ord = {
+            cd.sdc + '_std'  : None ,
+            cd.bdc + '_std'  : None ,
+            cd.ssc + '_std'  : None ,
+            cd.bsc + '_std'  : None ,
+            cd.sdc + '_mean' : None ,
+            cd.bdc + '_mean' : None ,
+            cd.ssc + '_mean' : None ,
+            cd.bsc + '_mean' : None ,
+            c.jyr            : None
+            }
+
+    dfo = dfo[cols_ord.keys()]
+
+    ##
+    dfo.to_html(sum_stat / 'count.html' , index = False)
 
 def var_fa() :
     pass
@@ -210,6 +233,37 @@ def var_fa() :
     dfo = dfo.reset_index()
 
     ##
-    dfo.to_csv(sum_stat / 'var.csv' , index = False)
+    cord = {
+            'max'   : None ,
+            '75%'   : None ,
+            '50%'   : None ,
+            '25%'   : None ,
+            'min'   : None ,
+            'std'   : None ,
+            'mean'  : None ,
+            'count' : None ,
+            'index' : None
+            }
+
+    dfo = dfo[cord.keys()]
+
+    ##
+    dfo.to_html(sum_stat / 'var.html' , index = False)
 
 ##
+def make_all_tables_fa() :
+    pass
+
+    ##
+    fps = {
+            '/Users/mahdi/Dropbox/1-GitHub/TeIAS-Thesis-STATA/c_Tables/v6/main/main_short.txt'       : 'main' ,
+            '/Users/mahdi/Dropbox/1-GitHub/TeIAS-Thesis-STATA/c_Tables/v6/ci/ci_short.txt'           : 'ci' ,
+            '/Users/mahdi/Dropbox/1-GitHub/TeIAS-Thesis-STATA/c_Tables/v6/size/size_short.txt'       : 'size' ,
+            '/Users/mahdi/Dropbox/1-GitHub/TeIAS-Thesis-STATA/c_Tables/v6/no_news/no_news_short.txt' : 'nonews'
+            }
+
+    for fpi , fpo in fps.items() :
+        tables_fa(fpi , fpo)
+
+    ##
+    list(reversed(df.columns))
